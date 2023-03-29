@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <div class="tab-content" id="v-pills-tabContent">
                             @include('skote.pages.profile.detail', ['employee' => $employee])
-                            @include('skote.pages.profile.change-password')
+                            @include('skote.pages.profile.change-password', ['employee' => $employee])
                         </div>
                     </div>
                 </div>

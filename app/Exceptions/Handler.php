@@ -2,8 +2,12 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Str;
+use Exception;
 use Throwable;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -43,6 +47,16 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        $this->renderable(function (Exception $e) {
+            if (true === Str::startsWith(request()->path(), 'api')) {
+                $httpCode = (method_exists($e, 'getStatusCode')) ? $e->getStatusCode() : 400;
+                $successMessage = '';
+                $errorMessage = $e->getMessage();
+                $actionClient = '';
+                return response()->api(false, $httpCode, [], $successMessage, $errorMessage, $actionClient);
+            }
         });
     }
 }
