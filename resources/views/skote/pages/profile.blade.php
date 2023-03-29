@@ -17,7 +17,7 @@
                         <i class= "bx bxs-extension d-block check-nav-icon mt-4 mb-2"></i>
                         <p class="fw-bold mb-4">My Profile</p>
                     </a>
-                    <a class="nav-link" id="v-pills-payment-tab" data-bs-toggle="pill" href="#v-pills-payment" role="tab" aria-controls="v-pills-change-password" aria-selected="false">
+                    <a class="nav-link" id="v-pills-change-password-tab" data-bs-toggle="pill" href="#v-pills-change-password" role="tab" aria-controls="v-pills-change-password" aria-selected="false">
                         <i class= "bx bx-key d-block check-nav-icon mt-4 mb-2"></i>
                         <p class="fw-bold mb-4">Change Password</p>
                     </a>
