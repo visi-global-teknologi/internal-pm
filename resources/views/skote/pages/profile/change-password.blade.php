@@ -23,7 +23,12 @@
             </div>
             <div class="form-group row mb-4">
                 <div class="col-md-4">
-                    <button type="submit" class="btn btn-primary w-md">Submit</button>
+                    <button id="btn-submit-form-user-change-password" type="submit" class="btn btn-primary w-md">Submit</button>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap gap-3 mb-2">
+                <div style="display: none" class="spinner-border text-primary" role="status">
+                    <span class="sr-only">Loading...</span>
                 </div>
             </div>
         {!! Form::close() !!}
