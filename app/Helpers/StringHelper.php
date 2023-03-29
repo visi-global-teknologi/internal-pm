@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Helpers;
+
+class StringHelper
+{
+
+    /**
+     * check string is json
+     *
+     * @param  string $str
+     * @return boolean
+     */
+    public function isJson($str)
+    {
+        return is_string($str) && is_array(json_decode($str, true)) ? true : false;
+    }
+
+    /**
+     * change null with dash
+     *
+     * @param  string $str
+     * @return string
+     */
+    public function changeNullWithDash($str)
+    {
+        return (is_null($str)) ? '-' : $str;
+    }
+
+    /**
+     * change null with dash for date formatted
+     *
+     * @param  string $str
+     * @return string
+     */
+    public function changeNullWithDashForDateFormatted($str)
+    {
+        if (is_null($str))
+            return '-';
+
+        return $str->toFormattedDateString();
+    }
+}

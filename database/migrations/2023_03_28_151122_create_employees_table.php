@@ -16,10 +16,11 @@ return new class extends Migration
             $table->string('uuid')->unique();
             $table->string('name')->unique();
             $table->string('email')->unique();
-            $table->string('email_personal')->nullable()->unique();
+            $table->string('personal_email')->nullable()->unique();
             $table->date('birthday')->nullable();
             $table->date('join_date')->nullable();
             $table->string('photo')->nullable()->unique();
+            $table->string('phone_number')->nullable()->unique();
             $table->string('employee_number')->unique();
             $table->enum('gender', ['female', 'male'])->default('male');
             $table->enum('active_status', ['no', 'yes'])->default('yes');

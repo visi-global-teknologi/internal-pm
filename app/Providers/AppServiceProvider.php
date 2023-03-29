@@ -11,7 +11,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // helper
+
+        $this->app->bind(
+            'string.helper',
+            \App\Helpers\StringHelper::class
+        );
     }
 
     /**

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -28,6 +30,8 @@ class HomeController extends Controller
 
     public function profile()
     {
-        return view('skote.pages.profile');
+        $employee = Employee::with(['user', 'employee_level', 'employee_position.employee_division'])->where('user_id', Auth::user()->id)->first();
+
+        return view('skote.pages.profile', compact('employee'));
     }
 }

@@ -17,10 +17,11 @@ use Illuminate\Database\Eloquent\Collection;
  * @property string $uuid
  * @property string $name
  * @property string $email
- * @property string $email_personal
+ * @property string $personal_email
  * @property Carbon $birthday
  * @property Carbon $join_date
  * @property string $photo
+ * @property string $phone_number
  * @property string $employee_number
  * @property string $gender
  * @property string $active_status
@@ -53,11 +54,12 @@ class Employee extends Model
 		'uuid',
 		'name',
 		'email',
-        'email_personal',
+        'personal_email',
 		'birthday',
 		'join_date',
 		'photo',
 		'employee_number',
+        'phone_number',
 		'gender',
 		'active_status',
 		'employee_level_id',

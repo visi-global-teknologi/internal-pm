@@ -17,23 +17,23 @@
                 </div>
                 <div class="card-body pt-0">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="avatar-md profile-user-wid mb-4">
                                 <img src="https://themesbrand.com/skote/layouts/assets/images/users/avatar-1.jpg" alt="" class="img-thumbnail rounded-circle">
                             </div>
-                            <h5 class="font-size-15 text-truncate">Cynthia Price</h5>
-                            <p class="text-muted mb-0 text-truncate">UI/UX Designer</p>
+                            <h5 class="font-size-15 text-truncate">{{ ucwords($employee->name) }}</h5>
+                            <p class="text-muted mb-0 text-truncate">{{ app('string.helper')->changeNullWithDash(ucwords($employee->employee_position->name)) }}</p>
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                             <div class="pt-4">
                                 <div class="row">
                                     <div class="col-6">
-                                        <h5 class="font-size-15">125</h5>
-                                        <p class="text-muted mb-0">Employee Number</p>
+                                        <p class="text-muted mb-0">Number</p>
+                                        <h5 class="font-size-15">{{ app('string.helper')->changeNullWithDash(ucwords($employee->employee_number)) }}</h5>
                                     </div>
                                     <div class="col-6">
-                                        <h5 class="font-size-15">$1245</h5>
                                         <p class="text-muted mb-0">Join Date</p>
+                                        <h5 class="font-size-15">{{ app('string.helper')->changeNullWithDashForDateFormatted($employee->join_date) }}</h5>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -53,23 +53,23 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Full Name :</th>
-                                    <td>Cynthia Price</td>
+                                    <td>{{ ucwords($employee->name) }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Phone Number :</th>
-                                    <td>(123) 123 1234</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash($employee->phone_number) }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Personal Email :</th>
-                                    <td>California, United States</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash($employee->personal_email) }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Birthday :</th>
-                                    <td>California, United States</td>
+                                    <td>{{ app('string.helper')->changeNullWithDashForDateFormatted($employee->birthday) }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Gender :</th>
-                                    <td>California, United States</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash(ucwords($employee->gender)) }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -88,23 +88,23 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Email :</th>
-                                    <td>(123) 123 1234</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash($employee->email) }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Division :</th>
-                                    <td>Cynthia Price</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash(ucwords($employee->employee_position->employee_division->name)) }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Position :</th>
-                                    <td>California, United States</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Supervisor :</th>
-                                    <td>California, United States</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash(ucwords($employee->employee_position->name)) }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Level :</th>
-                                    <td>California, United States</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash(ucwords($employee->employee_level->name)) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Supervisor :</th>
+                                    <td>{{ app('string.helper')->changeNullWithDash($employee->employee_supervisor_id) }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -122,7 +122,7 @@
                         <table class="table table-striped mb-0">
                             <tbody>
                                 <tr>
-                                    <td>sakjhja asdhvhdh davhjd vhsv dvashgvdah jjhhd ajhw hjdashjd</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash(null) }}</td>
                                 </tr>
                             </tbody>
                         </table>
