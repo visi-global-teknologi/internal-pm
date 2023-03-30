@@ -104,7 +104,11 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">Supervisor :</th>
-                                    <td>{{ app('string.helper')->changeNullWithDash($employee->employee_supervisor_id) }}</td>
+                                    @if (count($employeeDto->employee_supervisor) > 0)
+                                        <td>{{ $employeeDto->employee_supervisor['name'] }}</td>
+                                    @else
+                                        <td> - </td>
+                                    @endif
                                 </tr>
                             </tbody>
                         </table>

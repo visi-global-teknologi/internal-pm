@@ -4,7 +4,6 @@ namespace App\Helpers;
 
 class StringHelper
 {
-
     /**
      * check string is json
      *

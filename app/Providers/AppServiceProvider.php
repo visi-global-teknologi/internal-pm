@@ -31,6 +31,11 @@ class AppServiceProvider extends ServiceProvider
             'string.helper',
             \App\Helpers\StringHelper::class
         );
+
+        $this->app->bind(
+            'employee.helper',
+            \App\Helpers\EmployeeHelper::class
+        );
     }
 
     /**
