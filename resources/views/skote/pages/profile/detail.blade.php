@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="{{ route('profile.edit', ['id' => $employee->user_id]) }}" class="btn btn-primary waves-effect waves-light btn-sm">Edit Profile <i class="mdi mdi-arrow-right ms-1"></i></a>
+                                    <a href="{{ route('profile.edit', ['uuid' => $employee->uuid]) }}" class="btn btn-primary waves-effect waves-light btn-sm">Edit Profile <i class="mdi mdi-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
                         </div>

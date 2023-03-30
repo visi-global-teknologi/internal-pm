@@ -37,10 +37,6 @@
     </div>
     <!-- END layout-wrapper -->
 
-    <!-- Right Sidebar -->
-    @include('layouts.skote.right-sidebar')
-    <!-- /Right-bar -->
-
     <!-- JAVASCRIPT -->
     @include('layouts.skote.vendor-scripts')
 </body>

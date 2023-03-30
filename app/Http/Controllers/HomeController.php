@@ -40,11 +40,16 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $uuid
      * @return \Illuminate\Http\Response
      */
-    public function profileEdit($id)
+    public function profileEdit($uuid)
     {
-        dd($id);
+        try {
+            $employee = Employee::with(['user', 'employee_level', 'employee_position.employee_division'])->where('uuid', $uuid)->firstOrFail();
+            return view('skote.pages.profile.edit', compact('employee'));
+        } catch (\Exception $e) {
+            return redirect('profile');
+        }
     }
 }
