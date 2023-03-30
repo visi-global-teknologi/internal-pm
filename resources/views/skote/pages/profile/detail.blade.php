@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="avatar-md profile-user-wid mb-4">
-                                <img src="{{ URL::asset('/build/images/users/avatar-1.jpg') }}" alt="" class="img-thumbnail rounded-circle">
+                                <img src="{{ $employeeDto->url_photo }}" alt="" class="img-thumbnail rounded-circle">
                             </div>
                             <h5 class="font-size-15 text-truncate">{{ ucwords($employee->user->name) }}</h5>
                             <p class="text-muted mb-0 text-truncate">{{ app('string.helper')->changeNullWithDash(ucwords($employee->employee_position->name)) }}</p>
