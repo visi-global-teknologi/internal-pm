@@ -36,4 +36,15 @@ class HomeController extends Controller
 
         return view('skote.pages.profile', compact('employee', 'employeeDto'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function profileEdit($id)
+    {
+        dd($id);
+    }
 }
