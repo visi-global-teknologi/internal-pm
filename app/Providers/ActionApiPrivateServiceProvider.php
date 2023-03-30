@@ -17,6 +17,11 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
             'app.action.api.private.user.change-password',
             \App\Actions\Api\Private\User\ChangePassword\Handler::class
         );
+
+        $this->app->bind(
+            'app.action.api.private.employee.update',
+            \App\Actions\Api\Private\Employee\Update\Handler::class
+        );
     }
 
     /**
