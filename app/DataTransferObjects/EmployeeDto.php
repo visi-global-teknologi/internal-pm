@@ -10,11 +10,10 @@ class EmployeeDto extends Data
     public function __construct(
         public int $id,
         public string $uuid,
-        public string $name,
-        public string $email,
         public ?string $personal_email,
+        public string $birthday_formatted,
         public string $join_date_formatted,
-        public array $employee_supervisor,
+        public array $employee_supervisor
     ) {
 
     }
@@ -24,12 +23,22 @@ class EmployeeDto extends Data
         return new self(
             $employee->id,
             $employee->uuid,
-            $employee->name,
-            $employee->email,
             $employee->personal_email,
+            self::getBirthdayFormatted($employee),
             self::getJoinDateFormatted($employee),
             self::getEmployeeSupervisor($employee)
         );
+    }
+
+    public static function getBirthdayFormatted($employee)
+    {
+        $result = '-';
+
+        if (!is_null($employee->birthday)) {
+            $result = $employee->birthday->toFormattedDateString();
+        }
+
+        return $result;
     }
 
     public static function getJoinDateFormatted($employee)

@@ -47,7 +47,9 @@ class HomeController extends Controller
     {
         try {
             $employee = Employee::with(['user', 'employee_level', 'employee_position.employee_division'])->where('uuid', $uuid)->firstOrFail();
-            return view('skote.pages.profile.edit', compact('employee'));
+            $employeeDto = EmployeeDto::fromModel($employee);
+
+            return view('skote.pages.profile.edit', compact('employee', 'employeeDto'));
         } catch (\Exception $e) {
             return redirect('profile');
         }

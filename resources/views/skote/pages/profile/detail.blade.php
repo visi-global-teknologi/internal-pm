@@ -21,7 +21,7 @@
                             <div class="avatar-md profile-user-wid mb-4">
                                 <img src="{{ URL::asset('/build/images/users/avatar-1.jpg') }}" alt="" class="img-thumbnail rounded-circle">
                             </div>
-                            <h5 class="font-size-15 text-truncate">{{ ucwords($employee->name) }}</h5>
+                            <h5 class="font-size-15 text-truncate">{{ ucwords($employee->user->name) }}</h5>
                             <p class="text-muted mb-0 text-truncate">{{ app('string.helper')->changeNullWithDash(ucwords($employee->employee_position->name)) }}</p>
                         </div>
                         <div class="col-sm-6">
@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-6">
                                         <p class="text-muted mb-0">Join Date</p>
-                                        <h5 class="font-size-15">{{ app('string.helper')->changeNullWithDashForDateFormatted($employee->join_date) }}</h5>
+                                        <h5 class="font-size-15">{{ $employeeDto->join_date_formatted }}</h5>
                                     </div>
                                 </div>
                                 <div class="mt-4">
@@ -52,10 +52,6 @@
                         <table class="table table-striped mb-0">
                             <tbody>
                                 <tr>
-                                    <th scope="row">Full Name :</th>
-                                    <td>{{ ucwords($employee->name) }}</td>
-                                </tr>
-                                <tr>
                                     <th scope="row">Phone Number :</th>
                                     <td>{{ app('string.helper')->changeNullWithDash($employee->phone_number) }}</td>
                                 </tr>
@@ -64,12 +60,12 @@
                                     <td>{{ app('string.helper')->changeNullWithDash($employee->personal_email) }}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Birthday :</th>
-                                    <td>{{ app('string.helper')->changeNullWithDashForDateFormatted($employee->birthday) }}</td>
-                                </tr>
-                                <tr>
                                     <th scope="row">Gender :</th>
                                     <td>{{ app('string.helper')->changeNullWithDash(ucwords($employee->gender)) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Birthday :</th>
+                                    <td>{{ $employeeDto->birthday_formatted }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -88,7 +84,7 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Email :</th>
-                                    <td>{{ app('string.helper')->changeNullWithDash($employee->email) }}</td>
+                                    <td>{{ app('string.helper')->changeNullWithDash($employee->user->email) }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Division :</th>

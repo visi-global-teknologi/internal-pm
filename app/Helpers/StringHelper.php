@@ -25,18 +25,4 @@ class StringHelper
     {
         return (is_null($str)) ? '-' : $str;
     }
-
-    /**
-     * change null with dash for date formatted
-     *
-     * @param  string $str
-     * @return string
-     */
-    public function changeNullWithDashForDateFormatted($str)
-    {
-        if (is_null($str))
-            return '-';
-
-        return $str->toFormattedDateString();
-    }
 }

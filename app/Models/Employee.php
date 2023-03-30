@@ -15,8 +15,6 @@ use Illuminate\Database\Eloquent\Collection;
  *
  * @property int $id
  * @property string $uuid
- * @property string $name
- * @property string $email
  * @property string $personal_email
  * @property Carbon $birthday
  * @property Carbon $join_date
@@ -52,8 +50,6 @@ class Employee extends Model
 
 	protected $fillable = [
 		'uuid',
-		'name',
-		'email',
         'personal_email',
 		'birthday',
 		'join_date',

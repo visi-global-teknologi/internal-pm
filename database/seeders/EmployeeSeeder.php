@@ -17,8 +17,6 @@ class EmployeeSeeder extends Seeder
     public function run(): void
     {
         Employee::create([
-            'name' => 'koesindarto widiokarmo',
-            'email' => 'tyo.widiokarmo@visiglobalteknologi.co.id',
             'birthday' => '1986-06-18',
             'employee_number' => rand(1, 30),
             'gender' => 'male',

@@ -16,12 +16,12 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $admin = User::create([
+        $projectManager = User::create([
             'name' => 'koesindarto widiokarmo',
             'email' => 'tyo.widiokarmo@visiglobalteknologi.co.id',
             'password' => bcrypt('12345678'),
             'email_verified_at' => now()
         ]);
-        $admin->assignRole('admin');
+        $projectManager->assignRole('project manager');
     }
 }
