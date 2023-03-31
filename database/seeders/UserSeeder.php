@@ -17,13 +17,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         // super admin
-        $superAdmin = User::create([
-            'name' => 'super admin',
-            'email' => 'superadmin@visiglobalteknologi.co.id',
+        $bod = User::create([
+            'name' => 'sapta aji',
+            'email' => 'sapta.aji@visiglobalteknologi.co.id',
             'password' => bcrypt('12345678'),
             'email_verified_at' => now()
         ]);
-        $superAdmin->assignRole(config('pm.roles.super-admin'));
+        $bod->assignRole(config('pm.roles.bod'));
 
         // employee
         $employee = User::create([

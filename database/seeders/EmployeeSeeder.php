@@ -25,5 +25,15 @@ class EmployeeSeeder extends Seeder
             'employee_position_id' => EmployeePosition::where('name', 'project manager')->first()->id,
             'user_id' => User::where('name', 'koesindarto widiokarmo')->first()->id
         ]);
+
+        Employee::create([
+            'birthday' => '1990-07-08',
+            'employee_number' => 3,
+            'gender' => 'male',
+            'active_status' => 'yes',
+            'employee_level_id' => EmployeeLevel::where('name', 1)->first()->id,
+            'employee_position_id' => EmployeePosition::where('name', 'cto')->first()->id,
+            'user_id' => User::where('name', 'sapta aji')->first()->id
+        ]);
     }
 }

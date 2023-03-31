@@ -16,6 +16,7 @@ class EmployeePositionSeeder extends Seeder
     {
         $employeePositions = [
             'software development' => [
+                'cto',
                 'web developer',
                 'mobile developer',
                 'qa',
