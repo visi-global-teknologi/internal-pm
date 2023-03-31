@@ -22,6 +22,6 @@ class UserSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'email_verified_at' => now()
         ]);
-        $projectManager->assignRole('project manager');
+        $projectManager->assignRole(config('pm.roles.employee'));
     }
 }
