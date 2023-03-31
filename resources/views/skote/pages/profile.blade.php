@@ -42,7 +42,7 @@
 @endsection
 
 @section('script')
-<script src="{{ URL::asset('build/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ URL::asset('build/libs/sweetalert2/sweetalert2.min.js') }}"></script>
 @endsection
 
 @section('script-bottom')

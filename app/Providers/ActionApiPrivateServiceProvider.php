@@ -18,9 +18,18 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
             \App\Actions\Api\Private\User\ChangePassword\Handler::class
         );
 
+        // employee
+
         $this->app->bind(
             'app.action.api.private.employee.update',
             \App\Actions\Api\Private\Employee\Update\Handler::class
+        );
+
+        // datatable
+
+        $this->app->bind(
+            'app.action.api.private.datatable.role',
+            \App\Actions\Api\Private\Datatable\Role\Handler::class
         );
     }
 
