@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Edit Employee Form</h4>
-                    {!! Form::open(['route' => ['api.private.employee.update', $employee->uuid], 'method' => 'POST', 'id' => 'form-employee-update']) !!}
+                    {!! Form::open(['route' => ['api.private.employee.update', $employee->uuid], 'method' => 'POST', 'id' => 'form-employee-update', 'files' => true]) !!}
                         <input name="_method" type="hidden" value="PUT"/>
                         <div class="row mb-4">
                             <label class="col-sm-3 col-form-label">Full Name</label>
@@ -60,6 +60,16 @@
                             <label class="col-sm-3 col-form-label">Photo</label>
                             <div class="col-sm-9">
                                 <input class="form-control" type="file" name="photo">
+                            </div>
+                        </div>
+                        <div class="form-group row mb-4">
+                            <div class="col-md-4">
+                                <button id="btn-submit-form-employee-update" type="submit" class="btn btn-primary w-md">Update</button>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-3 mb-2">
+                            <div style="display: none" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
                             </div>
                         </div>
                         {!! Form::close() !!}

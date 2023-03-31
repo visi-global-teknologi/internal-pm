@@ -31,6 +31,12 @@ class HomeController extends Controller
 
     public function profile()
     {
+        $user = Auth::user();
+        $userRole = $user->getRoleNames()->first();
+
+        if ('super admin' == $userRole)
+            return redirect('home');
+
         $employee = Employee::with(['user', 'employee_level', 'employee_position.employee_division'])->where('user_id', Auth::user()->id)->first();
         $employeeDto = EmployeeDto::fromModel($employee);
 
