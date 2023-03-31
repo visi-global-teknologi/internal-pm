@@ -14,6 +14,7 @@ class EmployeeDto extends Data
         public string $uuid,
         public ?string $personal_email,
         public string $birthday_formatted,
+        public string $birthday_ymd_formatted,
         public string $join_date_formatted,
         public string $url_photo,
         public array $employee_supervisor
@@ -28,6 +29,7 @@ class EmployeeDto extends Data
             $employee->uuid,
             $employee->personal_email,
             self::getBirthdayFormatted($employee),
+            self::getBirthdayYmdFormatted($employee),
             self::getJoinDateFormatted($employee),
             self::getUrlPhoto($employee),
             self::getEmployeeSupervisor($employee)
@@ -40,6 +42,17 @@ class EmployeeDto extends Data
 
         if (!empty($employee->birthday)) {
             $result = $employee->birthday->toFormattedDateString();
+        }
+
+        return $result;
+    }
+
+    public static function getBirthdayYmdFormatted($employee)
+    {
+        $result = '-';
+
+        if (!empty($employee->birthday)) {
+            $result = $employee->birthday->format('Y-m-d');
         }
 
         return $result;

@@ -41,7 +41,7 @@
                         <div class="row mb-4">
                             <label class="col-sm-3 col-form-label">Birthday</label>
                             <div class="col-sm-9">
-                                <input required type="text" class="form-control" name="birthday" value="{{ $employeeDto->birthday_formatted }}" >
+                                <input required type="text" class="form-control" name="birthday" value="{{ $employeeDto->birthday_ymd_formatted }}" >
                             </div>
                         </div>
                         <div class="row mb-4">
