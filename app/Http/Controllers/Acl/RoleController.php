@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Acl;
 
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,7 +13,9 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('skote.pages.acl.role.index');
+        $user = Auth::user();
+
+        return view('skote.pages.acl.role.index', compact('user'));
     }
 
     /**

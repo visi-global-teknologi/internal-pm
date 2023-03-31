@@ -33,6 +33,7 @@
         </div>
     </div>
     <input type="hidden" name="route_api_private_datatable_role" value="{{ route('api.private.datatable.role') }}"/>
+    <input type="hidden" name="user_uuid" value="{{ $user->uuid }}"/>
 @endsection
 
 @section('script')

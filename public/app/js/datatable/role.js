@@ -57,7 +57,7 @@ $(document).ready(function (e) {
                     type: 'DELETE',
                     url: url,
                     data: {
-                        "token": $("input[name=token_user]").val()
+                        "user_uuid": $("input[name=user_uuid]").val()
                     },
                     success: function (response) {
                         Swal.fire("Berhasil!", response.success_message, "success");

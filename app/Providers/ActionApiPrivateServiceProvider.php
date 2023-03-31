@@ -31,6 +31,13 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
             'app.action.api.private.datatable.role',
             \App\Actions\Api\Private\Datatable\Role\Handler::class
         );
+
+        // acl
+
+        $this->app->bind(
+            'app.action.api.private.acl.role.delete',
+            \App\Actions\Api\Private\Acl\Role\Delete\Handler::class
+        );
     }
 
     /**

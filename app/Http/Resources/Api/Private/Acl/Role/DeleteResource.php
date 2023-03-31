@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Api\Private\Employee;
+namespace App\Http\Resources\Api\Private\Acl\Role;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UpdateResource extends JsonResource
+class DeleteResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,7 +18,7 @@ class UpdateResource extends JsonResource
             'status' => true,
             'http_code' => 200,
             'data' => [],
-            'success_message' => 'Successfully update employee',
+            'success_message' => 'Successfully delete role',
             'error_message' => '',
             'action_client' => ''
         ];

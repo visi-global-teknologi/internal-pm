@@ -15,12 +15,12 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::create([
-            'name' => 'bod'
-        ]);
+        $roles = config('pm.roles');
 
-        Role::create([
-            'name' => 'employee'
-        ]);
+        foreach ($roles as $key => $value) {
+            Role::create([
+                'name' => $value
+            ]);
+        }
     }
 }

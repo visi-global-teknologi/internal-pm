@@ -3,6 +3,7 @@
 return [
     'roles' => [
         'bod' => 'bod',
-        'employee' => 'employee'
+        'employee' => 'employee',
+        'super-admin' => 'super admin'
     ]
 ];

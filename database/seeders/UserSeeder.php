@@ -16,12 +16,22 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $projectManager = User::create([
+        // super admin
+        $superAdmin = User::create([
+            'name' => 'super admin',
+            'email' => 'superadmin@visiglobalteknologi.co.id',
+            'password' => bcrypt('12345678'),
+            'email_verified_at' => now()
+        ]);
+        $superAdmin->assignRole(config('pm.roles.super-admin'));
+
+        // employee
+        $employee = User::create([
             'name' => 'koesindarto widiokarmo',
             'email' => 'tyo.widiokarmo@visiglobalteknologi.co.id',
             'password' => bcrypt('12345678'),
             'email_verified_at' => now()
         ]);
-        $projectManager->assignRole(config('pm.roles.employee'));
+        $employee->assignRole(config('pm.roles.employee'));
     }
 }
