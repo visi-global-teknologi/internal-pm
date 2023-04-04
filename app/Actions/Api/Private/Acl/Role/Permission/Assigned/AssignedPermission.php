@@ -9,6 +9,7 @@ class AssignedPermission
     public static function handle(Request $request)
     {
         $role = \Spatie\Permission\Models\Role::where('id', $request->role_id)->first();
-        $role->givePermissionTo($request->permission_name);
+        $permission = \Spatie\Permission\Models\Permission::findByName($request->permission_name);
+        $role->givePermissionTo($permission);
     }
 }
