@@ -16,7 +16,8 @@ class Handler
         ->addColumn('column_action', function($row) {
             $routeEdit = route('acl.roles.edit', ['role' => $row->id]);
             $routeDelete = route('api.private.acl.role.delete', ['id' => $row->id]);
-            return view('skote.pages.acl.role.datatable.index.column_action', compact('routeEdit','routeDelete'))->render();
+            $routePermissions = route('acl.roles.permissions', ['role' => $row->id]);
+            return view('skote.pages.acl.role.datatable.index.column_action', compact('routeEdit','routeDelete', 'routePermissions'))->render();
         })
         ->rawColumns(['value', 'column_action'])
         ->toJson();

@@ -64,6 +64,7 @@
                         </div>
                         <div class="form-group row mb-4">
                             <div class="col-md-4">
+                                <a class="btn btn-secondary waves-effect waves-light" href="{{ route('profile') }}">Back</a>
                                 <button id="btn-submit-form-employee-update" type="submit" class="btn btn-primary w-md">Update</button>
                             </div>
                         </div>

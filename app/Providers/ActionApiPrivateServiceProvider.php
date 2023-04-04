@@ -32,11 +32,26 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
             \App\Actions\Api\Private\Datatable\Role\Handler::class
         );
 
+        $this->app->bind(
+            'app.action.api.private.datatable.permission',
+            \App\Actions\Api\Private\Datatable\Permission\Handler::class
+        );
+
         // acl
 
         $this->app->bind(
             'app.action.api.private.acl.role.delete',
             \App\Actions\Api\Private\Acl\Role\Delete\Handler::class
+        );
+
+        $this->app->bind(
+            'app.action.api.private.acl.role.permission.revoke',
+            \App\Actions\Api\Private\Acl\Role\Permission\Revoke\Handler::class
+        );
+
+        $this->app->bind(
+            'app.action.api.private.acl.role.permission.assigned',
+            \App\Actions\Api\Private\Acl\Role\Permission\Assigned\Handler::class
         );
     }
 

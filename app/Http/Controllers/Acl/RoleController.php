@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Acl;
 
 use Auth;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -64,5 +65,18 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function permissions(string $id)
+    {
+        try {
+            $role = Role::where('id', $id)->firstOrFail();
+            return view('skote.pages.acl.role.permission', compact('role'));
+        } catch (\Exception $e) {
+            return redirect('acl.roles.index')->withErrors(['message' => $e->getMessage()]);
+        }
     }
 }

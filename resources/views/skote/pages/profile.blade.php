@@ -13,6 +13,15 @@
         @slot('title') Profile @endslot
     @endcomponent
 
+    @if ($errors->any())
+        @foreach ($errors->all() as $key => $error)
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{ $error }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endforeach
+    @endif
+
     <div class="checkout-tabs">
         <div class="row">
             <div class="col-xl-2 col-sm-3">

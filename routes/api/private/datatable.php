@@ -7,4 +7,7 @@ Route::group(['prefix' => 'datatables', 'as' => 'api.private.datatable.', 'middl
     Route::get('role', function (Request $request) {
         return app('app.action.api.private.datatable.role')->handle($request);
     })->name('role');
+    Route::get('permission', function (Request $request) {
+        return app('app.action.api.private.datatable.permission')->handle($request);
+    })->name('permission');
 });

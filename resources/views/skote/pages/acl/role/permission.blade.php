@@ -1,6 +1,6 @@
 @extends('layouts.skote.master')
 
-@section('title') Roles @endsection
+@section('title') Permissions @endsection
 
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('build/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
@@ -12,7 +12,7 @@
 
     @component('components.breadcrumb')
         @slot('li_1') ACL @endslot
-        @slot('title') Roles @endslot
+        @slot('title') Permissions @endslot
     @endcomponent
 
     @if ($errors->any())
@@ -29,11 +29,14 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Lists</h4>
-                    <table id="role-datatable" class="table table-bordered dt-responsive nowrap w-100">
+                    <table id="permission-datatable" class="table table-bordered dt-responsive nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th></th>
+                                <th>Key</th>
+                                <th>Prefix</th>
+                                <th>Controller</th>
+                                <th>Method</th>
+                                <th>Assigned</th>
                             </tr>
                         </thead>
                     </table>
@@ -41,8 +44,8 @@
             </div>
         </div>
     </div>
-    <input type="hidden" name="route_api_private_datatable_role" value="{{ route('api.private.datatable.role') }}"/>
-    <input type="hidden" name="user_uuid" value="{{ $user->uuid }}"/>
+    <input type="hidden" name="route_api_private_datatable_permission" value="{{ route('api.private.datatable.permission') }}"/>
+    <input type="hidden" name="role_name" value="{{ $role->name }}"/>
 @endsection
 
 @section('script')
@@ -54,5 +57,6 @@
 @endsection
 
 @section('script-bottom')
-    <script src="{{ URL::asset('app/js/datatable/role.js') }}"></script>
+    <script src="{{ URL::asset('app/js/datatable/permission.js') }}"></script>
+    <script src="{{ URL::asset('app/js/acl/role/permission/assigned-revoke.js') }}"></script>
 @endsection

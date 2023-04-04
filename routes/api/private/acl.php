@@ -8,5 +8,11 @@ Route::group(['prefix' => 'acl', 'as' => 'api.private.acl.', 'middleware' => []]
         Route::delete('/{id}', function (Request $request, $id) {
             return app('app.action.api.private.acl.role.delete')->handle($request, $id);
         })->name('delete');
+        Route::put('/{id}/permission/{permissionName}/assigned', function (Request $request, $id, $permissionName) {
+            return app('app.action.api.private.acl.role.permission.assigned')->handle($request, $id, $permissionName);
+        })->name('assigned');
+        Route::put('/{id}/permission/{permissionName}/revoke', function (Request $request, $id, $permissionName) {
+            return app('app.action.api.private.acl.role.permission.revoke')->handle($request, $id, $permissionName);
+        })->name('revoke');
     });
 });
