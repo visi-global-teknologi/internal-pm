@@ -32,10 +32,7 @@
                     <table id="permission-datatable" class="table table-bordered dt-responsive nowrap w-100">
                         <thead>
                             <tr>
-                                <th>Key</th>
-                                <th>Prefix</th>
-                                <th>Controller</th>
-                                <th>Method</th>
+                                <th>Name</th>
                                 <th>Assigned</th>
                             </tr>
                         </thead>

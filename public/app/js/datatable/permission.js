@@ -21,10 +21,7 @@ $(document).ready(function (e) {
             },
         },
         columns: [
-            { data: "key", name: "key" },
-            { data: "prefix", name: "prefix" },
-            { data: "controller", name: "controller" },
-            { data: "method", name: "method" },
+            { data: "name", name: "name" },
             {
                 data: "assigned",
                 name: "assigned",
