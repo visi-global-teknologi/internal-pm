@@ -9,4 +9,13 @@
         @slot('title') Dashboard @endslot
     @endcomponent
 
+    @if ($errors->any())
+        @foreach ($errors->all() as $key => $error)
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                {{ $error }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endforeach
+    @endif
+
 @endsection
