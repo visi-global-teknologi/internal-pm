@@ -2,8 +2,8 @@
 
 namespace App\Actions\Api\Private\MasterData\EmployeeDivision\Update;
 
-use Illuminate\Http\Request;
 use App\Http\Resources\Api\Private\MasterData\EmployeeDivision\UpdateResource;
+use Illuminate\Http\Request;
 
 class Handler
 {
