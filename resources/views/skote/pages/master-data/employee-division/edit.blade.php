@@ -2,6 +2,10 @@
 
 @section('title') Employee Division @endsection
 
+@section('css')
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('build/libs/sweetalert2/sweetalert2.min.css') }}">
+@endsection
+
 @section('content')
 
     @component('components.breadcrumb')
@@ -23,7 +27,8 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Edit</h4>
-                    <form>
+                    {!! Form::open(['route' => ['api.private.master-data.employee-division.update', $employeeDivision->id], 'method' => 'POST', 'id' => 'form-master-data-employee-division-update']) !!}
+                        <input type="hidden" name="_method" value="PUT" >
                         <div class="row mb-4">
                             <label class="col-sm-3 col-form-label">Name</label>
                             <div class="col-sm-9">
@@ -47,14 +52,27 @@
                         <div class="row justify-content-end">
                             <div class="col-sm-9">
                                 <div>
-                                    <button type="submit" class="btn btn-primary w-md">Update</button>
+                                    <button id="btn-submit-form-master-data-employee-division-update" type="submit" class="btn btn-primary w-md">Update</button>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                        <div class="d-flex flex-wrap gap-3 mb-2">
+                            <div style="display: none" class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        {!! Form::close() !!}
                 </div>
             </div>
         </div>
     </div>
 
+@endsection
+
+@section('script')
+    <script src="{{ URL::asset('build/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+@endsection
+
+@section('script-bottom')
+    <script src="{{ URL::asset('app/js/master-data/employee-division/update.js') }}"></script>
 @endsection

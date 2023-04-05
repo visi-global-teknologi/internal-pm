@@ -15,6 +15,7 @@ class Handler
         return DataTables::of($query)
             ->addColumn('column_action', function ($row) {
                 $routeEdit = route('master-data.employee-divisions.edit', ['employee_division' => $row->id]);
+
                 return view('skote.pages.master-data.employee-division.datatable.index.column_action', compact('routeEdit'))->render();
             })
             ->rawColumns(['column_action'])

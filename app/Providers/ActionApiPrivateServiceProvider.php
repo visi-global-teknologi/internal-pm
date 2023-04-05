@@ -58,6 +58,13 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
             'app.action.api.private.acl.role.permission.assigned',
             \App\Actions\Api\Private\Acl\Role\Permission\Assigned\Handler::class
         );
+
+        // master data
+
+        $this->app->bind(
+            'app.action.api.private.master-data.employee-division.update',
+            \App\Actions\Api\Private\MasterData\EmployeeDivision\Update\Handler::class
+        );
     }
 
     /**

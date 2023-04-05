@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\MasterData;
 
-use Illuminate\Http\Request;
-use App\Models\EmployeeDivision;
 use App\Http\Controllers\Controller;
+use App\Models\EmployeeDivision;
+use Illuminate\Http\Request;
 
 class EmployeeDivisionController extends Controller
 {
@@ -47,6 +47,7 @@ class EmployeeDivisionController extends Controller
     {
         try {
             $employeeDivision = EmployeeDivision::where('id', $id)->firstOrFail();
+
             return view('skote.pages.master-data.employee-division.edit', compact('employeeDivision'));
         } catch (\Exception $e) {
             return redirect('master-data.employee-divisions.index')->withErrors(['message' => $e->getMessage()]);
