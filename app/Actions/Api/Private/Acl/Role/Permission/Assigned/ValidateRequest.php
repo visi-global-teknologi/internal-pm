@@ -10,7 +10,7 @@ class ValidateRequest
     {
         $request->validate([
             'role_id' => 'required|exists:roles,id',
-            'permission_name' => 'required|exists:permissions,name'
+            'permission_name' => 'required|exists:permissions,name',
         ]);
     }
 }

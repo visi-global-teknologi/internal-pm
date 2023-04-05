@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\EmployeeLevel;
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class EmployeeLevelSeeder extends Seeder
 {
@@ -15,7 +14,7 @@ class EmployeeLevelSeeder extends Seeder
     {
         for ($i = 1; $i < 5; $i++) {
             EmployeeLevel::create([
-                'name' => $i
+                'name' => $i,
             ]);
         }
     }

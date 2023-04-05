@@ -3,8 +3,8 @@
 namespace App\Actions\Api\Private\Datatable\Permission;
 
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 
 class Handler
@@ -16,7 +16,7 @@ class Handler
         $rolePermissions = $role->permissions->toArray();
 
         return DataTables::of($query)
-        ->addColumn('assigned', function($row) use ($role, $rolePermissions) {
+        ->addColumn('assigned', function ($row) use ($role, $rolePermissions) {
             return self::checkRoleAssignedPermission($role->id, $rolePermissions, $row->name);
         })
         ->rawColumns(['assigned'])
@@ -25,14 +25,14 @@ class Handler
 
     public static function checkRoleAssignedPermission($roleId, $rolePermissions, $key)
     {
-        $result = array_filter($rolePermissions, function($rolePermission) use ($key) {
+        $result = array_filter($rolePermissions, function ($rolePermission) use ($key) {
             return $rolePermission['name'] == $key;
         });
 
-        $checked = (!empty($result)) ? true : false;
+        $checked = (! empty($result)) ? true : false;
         $url = (true == $checked) ?
                 route('api.private.acl.role.revoke', ['id' => $roleId, 'permissionName' => $key]) :
-                route('api.private.acl.role.assigned', ['id' => $roleId, 'permissionName' => $key]) ;
+                route('api.private.acl.role.assigned', ['id' => $roleId, 'permissionName' => $key]);
 
         return view('skote.pages.acl.role.datatable.permission.assigned-revoke', compact('checked', 'url', 'key'))->render();
     }

@@ -2,8 +2,8 @@
 
 namespace App\Actions\Api\Private\User\ChangePassword;
 
-use Hash;
 use App\Models\User;
+use Hash;
 use Illuminate\Http\Request;
 
 class ValidateRequest
@@ -14,7 +14,7 @@ class ValidateRequest
             'old_password' => 'required',
             'new_password' => 'required|min:8',
             'confirmation_new_password' => 'required|min:8',
-            'user_id' => 'required|exists:users,id'
+            'user_id' => 'required|exists:users,id',
         ]);
 
         self::checkOldPassword($request);
@@ -24,7 +24,7 @@ class ValidateRequest
     {
         $userOldPassword = User::where('id', $request->user_id)->first()->password;
 
-        if (!Hash::check($request->old_password, $userOldPassword))
-            throw new \Exception("Old password doesnt matched");
+        if (! Hash::check($request->old_password, $userOldPassword))
+            throw new \Exception('Old password doesnt matched');
     }
 }

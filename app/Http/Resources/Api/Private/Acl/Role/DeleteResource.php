@@ -20,7 +20,7 @@ class DeleteResource extends JsonResource
             'data' => [],
             'success_message' => 'Successfully delete role',
             'error_message' => '',
-            'action_client' => ''
+            'action_client' => '',
         ];
     }
 }

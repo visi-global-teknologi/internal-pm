@@ -2,8 +2,8 @@
 
 namespace App\Actions\Api\Private\Employee\Update;
 
-use LVR\Phone\Phone;
 use Illuminate\Http\Request;
+use LVR\Phone\Phone;
 
 class ValidateRequest
 {
@@ -15,10 +15,10 @@ class ValidateRequest
             'gender' => 'required|in:male,female',
             'phone_number' => [
                 'required',
-                new Phone
+                new Phone,
             ],
             'birthday' => 'required|date_format:Y-m-d',
-            'photo' => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:512'
+            'photo' => 'nullable|mimes:jpeg,png,jpg,gif,webp|max:512',
         ]);
     }
 }

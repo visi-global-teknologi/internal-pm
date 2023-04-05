@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\EmployeeDivision;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
 class EmployeeDivisionSeeder extends Seeder
 {
@@ -17,7 +16,7 @@ class EmployeeDivisionSeeder extends Seeder
 
         foreach ($divisions as $key => $value) {
             EmployeeDivision::create([
-                'name' => $value
+                'name' => $value,
             ]);
         }
     }

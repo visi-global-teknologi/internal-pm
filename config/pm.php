@@ -3,6 +3,6 @@
 return [
     'roles' => [
         'bod' => 'bod',
-        'employee' => 'employee'
-    ]
+        'employee' => 'employee',
+    ],
 ];

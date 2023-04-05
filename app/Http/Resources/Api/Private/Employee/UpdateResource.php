@@ -20,7 +20,7 @@ class UpdateResource extends JsonResource
             'data' => [],
             'success_message' => 'Successfully update employee',
             'error_message' => '',
-            'action_client' => ''
+            'action_client' => '',
         ];
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Actions\Api\Private\User\ChangePassword;
 
-use Illuminate\Http\Request;
 use App\Http\Resources\Api\Private\User\ChangePasswordResource;
+use Illuminate\Http\Request;
 
 class Handler
 {

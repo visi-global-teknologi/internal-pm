@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class PermissionSeeder extends Seeder
 {
@@ -37,7 +36,7 @@ class PermissionSeeder extends Seeder
         $skipped = [
             '_ignition',
             'log-viewer/api',
-            'sanctum'
+            'sanctum',
         ];
 
         return in_array($prefix, $skipped);
@@ -52,7 +51,7 @@ class PermissionSeeder extends Seeder
             'logout',
             'password.',
             'profile',
-            'login'
+            'login',
         ];
 
         foreach ($skipped as $value) {

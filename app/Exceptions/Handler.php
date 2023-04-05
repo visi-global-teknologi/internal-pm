@@ -2,12 +2,10 @@
 
 namespace App\Exceptions;
 
-use Str;
 use Exception;
-use Throwable;
-use Illuminate\Auth\AuthenticationException;
-use Illuminate\Validation\ValidationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Str;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -55,6 +53,7 @@ class Handler extends ExceptionHandler
                 $successMessage = '';
                 $errorMessage = $e->getMessage();
                 $actionClient = '';
+
                 return response()->api(false, $httpCode, [], $successMessage, $errorMessage, $actionClient);
             }
         });

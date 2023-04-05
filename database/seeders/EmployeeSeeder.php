@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use App\Models\Employee;
 use App\Models\EmployeeLevel;
-use Illuminate\Database\Seeder;
 use App\Models\EmployeePosition;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
+use Illuminate\Database\Seeder;
 
 class EmployeeSeeder extends Seeder
 {
@@ -23,7 +22,7 @@ class EmployeeSeeder extends Seeder
             'active_status' => 'yes',
             'employee_level_id' => EmployeeLevel::where('name', 2)->first()->id,
             'employee_position_id' => EmployeePosition::where('name', 'project manager')->first()->id,
-            'user_id' => User::where('name', 'koesindarto widiokarmo')->first()->id
+            'user_id' => User::where('name', 'koesindarto widiokarmo')->first()->id,
         ]);
 
         Employee::create([
@@ -33,7 +32,7 @@ class EmployeeSeeder extends Seeder
             'active_status' => 'yes',
             'employee_level_id' => EmployeeLevel::where('name', 1)->first()->id,
             'employee_position_id' => EmployeePosition::where('name', 'cto')->first()->id,
-            'user_id' => User::where('name', 'sapta aji')->first()->id
+            'user_id' => User::where('name', 'sapta aji')->first()->id,
         ]);
     }
 }

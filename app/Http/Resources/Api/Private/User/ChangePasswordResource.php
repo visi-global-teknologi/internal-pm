@@ -20,7 +20,7 @@ class ChangePasswordResource extends JsonResource
             'data' => [],
             'success_message' => 'Successfully changed password',
             'error_message' => '',
-            'action_client' => ''
+            'action_client' => '',
         ];
     }
 }

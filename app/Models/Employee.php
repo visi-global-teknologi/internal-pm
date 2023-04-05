@@ -7,8 +7,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Employee
@@ -28,40 +28,37 @@ use Illuminate\Database\Eloquent\Collection;
  * @property int|null $employee_supervisor_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
  * @property EmployeeLevel $employee_level
  * @property EmployeePosition $employee_position
  * @property Employee|null $employee
  * @property Collection|Employee[] $employees
- *
- * @package App\Models
  */
 class Employee extends Model
 {
-	protected $table = 'employees';
+    protected $table = 'employees';
 
-	protected $casts = [
-		'birthday' => 'date',
-		'join_date' => 'date',
-		'employee_level_id' => 'int',
-		'employee_position_id' => 'int',
-		'employee_supervisor_id' => 'int'
-	];
+    protected $casts = [
+        'birthday' => 'date',
+        'join_date' => 'date',
+        'employee_level_id' => 'int',
+        'employee_position_id' => 'int',
+        'employee_supervisor_id' => 'int',
+    ];
 
-	protected $fillable = [
-		'uuid',
+    protected $fillable = [
+        'uuid',
         'personal_email',
-		'birthday',
-		'join_date',
-		'photo',
-		'employee_number',
+        'birthday',
+        'join_date',
+        'photo',
+        'employee_number',
         'phone_number',
-		'gender',
-		'active_status',
-		'employee_level_id',
-		'employee_position_id',
-		'employee_supervisor_id'
-	];
+        'gender',
+        'active_status',
+        'employee_level_id',
+        'employee_position_id',
+        'employee_supervisor_id',
+    ];
 
     /**
      * The "booted" method of the model.
@@ -72,32 +69,32 @@ class Employee extends Model
     {
         parent::boot();
         static::creating(function ($employee) {
-            $employee->uuid = (string) \Str::uuid() . '-employee-' . time();
+            $employee->uuid = (string) \Str::uuid().'-employee-'.time();
         });
     }
 
-	public function employee_level()
-	{
-		return $this->belongsTo(EmployeeLevel::class);
-	}
+    public function employee_level()
+    {
+        return $this->belongsTo(EmployeeLevel::class);
+    }
 
-	public function employee_position()
-	{
-		return $this->belongsTo(EmployeePosition::class);
-	}
+    public function employee_position()
+    {
+        return $this->belongsTo(EmployeePosition::class);
+    }
 
-	public function employee()
-	{
-		return $this->belongsTo(Employee::class, 'employee_supervisor_id');
-	}
+    public function employee()
+    {
+        return $this->belongsTo(Employee::class, 'employee_supervisor_id');
+    }
 
-	public function user()
-	{
-		return $this->belongsTo(User::class);
-	}
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
-	public function employees()
-	{
-		return $this->hasMany(Employee::class, 'employee_supervisor_id');
-	}
+    public function employees()
+    {
+        return $this->hasMany(Employee::class, 'employee_supervisor_id');
+    }
 }

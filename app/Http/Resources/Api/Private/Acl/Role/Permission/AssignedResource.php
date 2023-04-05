@@ -20,7 +20,7 @@ class AssignedResource extends JsonResource
             'data' => [],
             'success_message' => 'Successfully assigned permission',
             'error_message' => '',
-            'action_client' => ''
+            'action_client' => '',
         ];
     }
 }

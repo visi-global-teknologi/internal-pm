@@ -2,8 +2,8 @@
 
 namespace App\Actions\Api\Private\Acl\Role\Permission\Revoke;
 
-use Illuminate\Http\Request;
 use App\Http\Resources\Api\Private\Acl\Role\Permission\RevokeResource;
+use Illuminate\Http\Request;
 
 class Handler
 {
@@ -11,7 +11,7 @@ class Handler
     {
         $request->request->add([
             'role_id' => $roleId,
-            'permission_name' => $permissionName
+            'permission_name' => $permissionName,
         ]);
 
         ValidateRequest::handle($request);

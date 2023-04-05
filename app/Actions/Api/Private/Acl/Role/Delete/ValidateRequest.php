@@ -16,9 +16,5 @@ class ValidateRequest
 
         $user = User::where('uuid', $request->user_uuid)->first();
         $role = $user->getRoleNames()->first();
-
-        // sementara
-        if (!in_array($role, ['bod']))
-            abort(400, 'You do not have access to this process');
     }
 }

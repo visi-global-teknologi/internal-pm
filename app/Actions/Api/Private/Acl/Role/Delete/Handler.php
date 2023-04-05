@@ -2,8 +2,8 @@
 
 namespace App\Actions\Api\Private\Acl\Role\Delete;
 
-use Illuminate\Http\Request;
 use App\Http\Resources\Api\Private\Acl\Role\DeleteResource;
+use Illuminate\Http\Request;
 
 class Handler
 {

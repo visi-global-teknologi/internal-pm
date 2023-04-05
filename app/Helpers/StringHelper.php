@@ -7,8 +7,8 @@ class StringHelper
     /**
      * check string is json
      *
-     * @param  string $str
-     * @return boolean
+     * @param  string  $str
+     * @return bool
      */
     public function isJson($str)
     {
@@ -18,7 +18,7 @@ class StringHelper
     /**
      * change null with dash
      *
-     * @param  string $str
+     * @param  string  $str
      * @return string
      */
     public function changeNullWithDash($str)

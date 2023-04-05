@@ -2,10 +2,10 @@
 
 namespace App\DataTransferObjects;
 
-use URL;
-use Storage;
 use App\Models\Employee;
 use Spatie\LaravelData\Data;
+use Storage;
+use URL;
 
 class EmployeeDto extends Data
 {
@@ -40,7 +40,7 @@ class EmployeeDto extends Data
     {
         $result = '-';
 
-        if (!empty($employee->birthday)) {
+        if (! empty($employee->birthday)) {
             $result = $employee->birthday->toFormattedDateString();
         }
 
@@ -51,7 +51,7 @@ class EmployeeDto extends Data
     {
         $result = '-';
 
-        if (!empty($employee->birthday)) {
+        if (! empty($employee->birthday)) {
             $result = $employee->birthday->format('Y-m-d');
         }
 
@@ -62,7 +62,7 @@ class EmployeeDto extends Data
     {
         $result = '-';
 
-        if (!empty($employee->join_date)) {
+        if (! empty($employee->join_date)) {
             $result = $employee->join_date->toFormattedDateString();
         }
 
@@ -72,7 +72,7 @@ class EmployeeDto extends Data
     public static function getUrlPhoto($employee)
     {
         $result = URL::asset('/build/images/users/avatar-1.jpg');
-        if (!empty($employee->photo)) {
+        if (! empty($employee->photo)) {
             $result = Storage::disk('employee-photo')->url($employee->photo);
         }
 

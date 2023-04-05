@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\EmployeeDivision;
 use App\Models\EmployeePosition;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
 class EmployeePositionSeeder extends Seeder
 {
@@ -20,8 +19,8 @@ class EmployeePositionSeeder extends Seeder
                 'web developer',
                 'mobile developer',
                 'qa',
-                'project manager'
-            ]
+                'project manager',
+            ],
         ];
         foreach ($employeePositions as $key => $value) {
             $employeeDivision = EmployeeDivision::where('name', $key)->first();
@@ -29,7 +28,7 @@ class EmployeePositionSeeder extends Seeder
                 foreach ($value as $keyV => $valueV) {
                     EmployeePosition::create([
                         'name' => $valueV,
-                        'employee_division_id' => $employeeDivision->id
+                        'employee_division_id' => $employeeDivision->id,
                     ]);
                 }
             }

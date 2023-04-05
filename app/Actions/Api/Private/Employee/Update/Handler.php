@@ -2,15 +2,15 @@
 
 namespace App\Actions\Api\Private\Employee\Update;
 
-use Illuminate\Http\Request;
 use App\Http\Resources\Api\Private\Employee\UpdateResource;
+use Illuminate\Http\Request;
 
 class Handler
 {
     public function handle(Request $request, $uuid)
     {
         $request->request->add([
-            'uuid' => $uuid
+            'uuid' => $uuid,
         ]);
         ValidateRequest::handle($request);
         SaveData::handle($request);

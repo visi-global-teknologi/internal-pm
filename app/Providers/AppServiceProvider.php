@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
                 'data' => $data,
                 'success_message' => $successMessage,
                 'error_message' => $errorMessage,
-                'action_client' => $actionClient
+                'action_client' => $actionClient,
             ], $httpCode);
         });
 

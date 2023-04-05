@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Employee;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\DataTransferObjects\EmployeeDto;
+use App\Models\Employee;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -54,6 +53,7 @@ class HomeController extends Controller
         try {
             $employee = Employee::with(['user', 'employee_level', 'employee_position.employee_division'])->where('uuid', $uuid)->firstOrFail();
             $employeeDto = EmployeeDto::fromModel($employee);
+
             return view('skote.pages.profile.edit', compact('employee', 'employeeDto'));
         } catch (\Exception $e) {
             return redirect('profile')->withErrors(['message' => $e->getMessage()]);

@@ -7,7 +7,6 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\Response;
-use Spatie\Permission\Exceptions\UnauthorizedException;
 
 class PermissionMiddleware
 {

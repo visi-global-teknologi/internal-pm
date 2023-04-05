@@ -20,7 +20,7 @@ class RevokeResource extends JsonResource
             'data' => [],
             'success_message' => 'Successfully revoke permission',
             'error_message' => '',
-            'action_client' => ''
+            'action_client' => '',
         ];
     }
 }

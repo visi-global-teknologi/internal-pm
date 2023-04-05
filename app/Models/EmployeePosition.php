@@ -7,8 +7,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class EmployeePosition
@@ -20,26 +20,23 @@ use Illuminate\Database\Eloquent\Collection;
  * @property int $employee_division_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
  * @property EmployeeDivision $employee_division
  * @property Collection|Employee[] $employees
- *
- * @package App\Models
  */
 class EmployeePosition extends Model
 {
-	protected $table = 'employee_positions';
+    protected $table = 'employee_positions';
 
-	protected $casts = [
-		'employee_division_id' => 'int'
-	];
+    protected $casts = [
+        'employee_division_id' => 'int',
+    ];
 
-	protected $fillable = [
-		'uuid',
-		'name',
-		'active_status',
-		'employee_division_id'
-	];
+    protected $fillable = [
+        'uuid',
+        'name',
+        'active_status',
+        'employee_division_id',
+    ];
 
     /**
      * The "booted" method of the model.
@@ -50,17 +47,17 @@ class EmployeePosition extends Model
     {
         parent::boot();
         static::creating(function ($employeePosition) {
-            $employeePosition->uuid = (string) \Str::uuid() . '-employee-position-' . time();
+            $employeePosition->uuid = (string) \Str::uuid().'-employee-position-'.time();
         });
     }
 
-	public function employee_division()
-	{
-		return $this->belongsTo(EmployeeDivision::class);
-	}
+    public function employee_division()
+    {
+        return $this->belongsTo(EmployeeDivision::class);
+    }
 
-	public function employees()
-	{
-		return $this->hasMany(Employee::class);
-	}
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
 }

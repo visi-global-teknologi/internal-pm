@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Acl;
 
-use Auth;
-use App\Models\Role;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Role;
+use Auth;
+use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
@@ -74,6 +74,7 @@ class RoleController extends Controller
     {
         try {
             $role = Role::where('id', $id)->firstOrFail();
+
             return view('skote.pages.acl.role.permission', compact('role'));
         } catch (\Exception $e) {
             return redirect('acl.roles.index')->withErrors(['message' => $e->getMessage()]);

@@ -7,8 +7,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class EmployeeLevel
@@ -19,20 +19,17 @@ use Illuminate\Database\Eloquent\Collection;
  * @property string $active_status
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- *
  * @property Collection|Employee[] $employees
- *
- * @package App\Models
  */
 class EmployeeLevel extends Model
 {
-	protected $table = 'employee_levels';
+    protected $table = 'employee_levels';
 
-	protected $fillable = [
-		'uuid',
-		'name',
-		'active_status'
-	];
+    protected $fillable = [
+        'uuid',
+        'name',
+        'active_status',
+    ];
 
     /**
      * The "booted" method of the model.
@@ -43,12 +40,12 @@ class EmployeeLevel extends Model
     {
         parent::boot();
         static::creating(function ($employeeLevel) {
-            $employeeLevel->uuid = (string) \Str::uuid() . '-employee-level-' . time();
+            $employeeLevel->uuid = (string) \Str::uuid().'-employee-level-'.time();
         });
     }
 
-	public function employees()
-	{
-		return $this->hasMany(Employee::class);
-	}
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
 }

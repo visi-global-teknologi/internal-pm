@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Str;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasPermissions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasPermissions;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -24,7 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'active_status'
+        'active_status',
     ];
 
     /**
@@ -34,7 +33,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token'
+        'remember_token',
     ];
 
     /**
@@ -55,12 +54,12 @@ class User extends Authenticatable
     {
         parent::boot();
         static::creating(function ($user) {
-            $user->uuid = (string) \Str::uuid() . '-user-' . time();
+            $user->uuid = (string) \Str::uuid().'-user-'.time();
         });
     }
 
     public function employees()
-	{
-		return $this->hasMany(Employee::class);
-	}
+    {
+        return $this->hasMany(Employee::class);
+    }
 }
