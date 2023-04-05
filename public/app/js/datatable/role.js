@@ -5,7 +5,7 @@ $(document).ready(function (e) {
         },
     });
 
-    var table = $("#role-datatable").DataTable({
+    $("#role-datatable").DataTable({
         processing: true,
         serverSide: true,
         ajax: {
@@ -56,9 +56,6 @@ $(document).ready(function (e) {
                 $.ajax({
                     type: 'DELETE',
                     url: url,
-                    data: {
-                        "user_uuid": $("input[name=user_uuid]").val()
-                    },
                     success: function (response) {
                         Swal.fire("Berhasil!", response.success_message, "success");
                         setTimeout(function(){

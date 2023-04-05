@@ -8,6 +8,7 @@
                 <li class="menu-title" key="t-menu">@lang('translation.Menu')</li>
                 @include('skote.menu.dashboard')
                 @include('skote.menu.acl')
+                @include('skote.menu.master-data')
             </ul>
         </div>
         <!-- Sidebar -->

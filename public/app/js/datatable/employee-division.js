@@ -5,14 +5,11 @@ $(document).ready(function (e) {
         },
     });
 
-    $("#permission-datatable").DataTable({
+    var table = $("#employee-division-datatable").DataTable({
         processing: true,
         serverSide: true,
         ajax: {
-            url: $("input[name=route_api_private_datatable_permission]").val(),
-            data: function (d) {
-                d.role_name = $("input[name=role_name]").val()
-            },
+            url: $("input[name=route_api_private_datatable_employee_division]").val(),
             error: function (xhr, error, code) {
                 var err = eval("(" + xhr.responseText + ")");
                 Swal.fire({
@@ -22,11 +19,7 @@ $(document).ready(function (e) {
         },
         columns: [
             { data: "name", name: "name" },
-            {
-                data: "assigned",
-                name: "assigned",
-                orderable: false
-            }
+            { data: "active_status", name: "active_status" },
         ],
     });
 });

@@ -20,7 +20,7 @@ class Handler
 
             return view('skote.pages.acl.role.datatable.index.column_action', compact('routeEdit', 'routeDelete', 'routePermissions'))->render();
         })
-        ->rawColumns(['value', 'column_action'])
+        ->rawColumns(['column_action'])
         ->toJson();
     }
 }
