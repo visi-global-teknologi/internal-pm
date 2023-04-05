@@ -20,7 +20,7 @@ class EmployeeLevelController extends Controller
      */
     public function create()
     {
-        //
+        return view('skote.pages.master-data.employee-level.create');
     }
 
     /**
