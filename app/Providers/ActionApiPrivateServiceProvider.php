@@ -42,6 +42,11 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
             \App\Actions\Api\Private\Datatable\EmployeeDivision\Handler::class
         );
 
+        $this->app->bind(
+            'app.action.api.private.datatable.employee-level',
+            \App\Actions\Api\Private\Datatable\EmployeeLevel\Handler::class
+        );
+
         // acl
 
         $this->app->bind(

@@ -13,4 +13,7 @@ Route::group(['prefix' => 'datatables', 'as' => 'api.private.datatable.', 'middl
     Route::get('employee-division', function (Request $request) {
         return app('app.action.api.private.datatable.employee-division')->handle($request);
     })->name('employee-division');
+    Route::get('employee-level', function (Request $request) {
+        return app('app.action.api.private.datatable.employee-level')->handle($request);
+    })->name('employee-level');
 });

@@ -17,4 +17,5 @@ Route::group(['prefix' => 'acl', 'as' => 'acl.', 'middleware' => ['auth', 'permi
 });
 Route::group(['prefix' => 'master-data', 'as' => 'master-data.', 'middleware' => ['auth', 'permission.middleware']], function () {
     Route::resource('employee-divisions', \App\Http\Controllers\MasterData\EmployeeDivisionController::class);
+    Route::resource('employee-levels', \App\Http\Controllers\MasterData\EmployeeLevelController::class);
 });
