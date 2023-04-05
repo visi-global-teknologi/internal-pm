@@ -34,6 +34,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Active Status</th>
+                                <th></th>
                             </tr>
                         </thead>
                     </table>
