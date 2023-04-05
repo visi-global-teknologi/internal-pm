@@ -52,6 +52,7 @@
                         <div class="row justify-content-end">
                             <div class="col-sm-9">
                                 <div>
+                                    <a class="btn btn-secondary w-md" href="{{ route('master-data.employee-divisions.index') }}">Back</a>
                                     <button id="btn-submit-form-master-data-employee-division-update" type="submit" class="btn btn-primary w-md">Update</button>
                                 </div>
                             </div>
