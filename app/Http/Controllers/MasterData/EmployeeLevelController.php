@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\MasterData;
 
 use App\Http\Controllers\Controller;
+use App\Models\EmployeeLevel;
 use Illuminate\Http\Request;
 
 class EmployeeLevelController extends Controller
@@ -44,7 +45,13 @@ class EmployeeLevelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        try {
+            $employeeLevel = EmployeeLevel::where('id', $id)->firstOrFail();
+
+            return view('skote.pages.master-data.employee-level.edit', compact('employeeLevel'));
+        } catch (\Exception $e) {
+            return redirect('master-data.employee-levels.index')->withErrors(['message' => $e->getMessage()]);
+        }
     }
 
     /**

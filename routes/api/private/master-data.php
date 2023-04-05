@@ -16,5 +16,8 @@ Route::group(['prefix' => 'master-data', 'as' => 'api.private.master-data.', 'mi
         Route::post('/', function (Request $request) {
             return app('app.action.api.private.master-data.employee-level.store')->handle($request);
         })->name('store');
+        Route::put('/{id}', function (Request $request, $id) {
+            return app('app.action.api.private.master-data.employee-level.update')->handle($request, $id);
+        })->name('update');
     });
 });
