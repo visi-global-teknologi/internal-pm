@@ -67,6 +67,11 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
         // master data
 
         $this->app->bind(
+            'app.action.api.private.master-data.employee-division.store',
+            \App\Actions\Api\Private\MasterData\EmployeeDivision\Store\Handler::class
+        );
+
+        $this->app->bind(
             'app.action.api.private.master-data.employee-division.update',
             \App\Actions\Api\Private\MasterData\EmployeeDivision\Update\Handler::class
         );

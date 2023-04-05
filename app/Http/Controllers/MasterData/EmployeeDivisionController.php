@@ -21,7 +21,7 @@ class EmployeeDivisionController extends Controller
      */
     public function create()
     {
-        //
+        return view('skote.pages.master-data.employee-division.create');
     }
 
     /**

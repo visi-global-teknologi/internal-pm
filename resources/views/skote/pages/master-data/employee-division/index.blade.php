@@ -24,6 +24,10 @@
         @endforeach
     @endif
 
+    <div class="d-flex justify-content-end align-items-center py-2">
+        <a href="{{ route('master-data.employee-divisions.create') }}" class="btn btn-primary w-m">Create Division</a>
+    </div>
+
     <div class="row">
         <div class="col-12">
             <div class="card">
