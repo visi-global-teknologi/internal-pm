@@ -11,6 +11,9 @@ Route::group(['prefix' => 'master-data', 'as' => 'api.private.master-data.', 'mi
         Route::put('/{id}', function (Request $request, $id) {
             return app('app.action.api.private.master-data.employee-division.update')->handle($request, $id);
         })->name('update');
+        Route::delete('/{id}', function (Request $request, $id) {
+            return app('app.action.api.private.master-data.employee-division.delete')->handle($request, $id);
+        })->name('delete');
     });
     Route::group(['prefix' => 'employee-level', 'as' => 'employee-level.', 'middleware' => []], function () {
         Route::post('/', function (Request $request) {
@@ -19,5 +22,8 @@ Route::group(['prefix' => 'master-data', 'as' => 'api.private.master-data.', 'mi
         Route::put('/{id}', function (Request $request, $id) {
             return app('app.action.api.private.master-data.employee-level.update')->handle($request, $id);
         })->name('update');
+        Route::delete('/{id}', function (Request $request, $id) {
+            return app('app.action.api.private.master-data.employee-level.delete')->handle($request, $id);
+        })->name('delete');
     });
 });

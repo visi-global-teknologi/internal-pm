@@ -77,6 +77,11 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            'app.action.api.private.master-data.employee-division.delete',
+            \App\Actions\Api\Private\MasterData\EmployeeDivision\Delete\Handler::class
+        );
+
+        $this->app->bind(
             'app.action.api.private.master-data.employee-level.store',
             \App\Actions\Api\Private\MasterData\EmployeeLevel\Store\Handler::class
         );
@@ -84,6 +89,11 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
         $this->app->bind(
             'app.action.api.private.master-data.employee-level.update',
             \App\Actions\Api\Private\MasterData\EmployeeLevel\Update\Handler::class
+        );
+
+        $this->app->bind(
+            'app.action.api.private.master-data.employee-level.delete',
+            \App\Actions\Api\Private\MasterData\EmployeeLevel\Delete\Handler::class
         );
     }
 

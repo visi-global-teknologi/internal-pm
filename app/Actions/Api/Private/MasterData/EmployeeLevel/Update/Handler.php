@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 
 class Handler
 {
-    public function handle(Request $request)
+    public function handle(Request $request, $id)
     {
+        $request->request->add([
+            'id' => $id,
+        ]);
+
         ValidateRequest::handle($request);
         UpdateData::handle($request);
 

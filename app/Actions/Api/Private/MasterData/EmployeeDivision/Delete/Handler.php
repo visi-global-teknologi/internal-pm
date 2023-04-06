@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Actions\Api\Private\MasterData\EmployeeDivision\Update;
+namespace App\Actions\Api\Private\MasterData\EmployeeDivision\Delete;
 
-use App\Http\Resources\Api\Private\MasterData\EmployeeDivision\UpdateResource;
+use App\Http\Resources\Api\Private\MasterData\EmployeeDivision\DeleteResource;
 use Illuminate\Http\Request;
 
 class Handler
@@ -14,8 +14,8 @@ class Handler
         ]);
 
         ValidateRequest::handle($request);
-        UpdateData::handle($request);
+        DeleteData::handle($request);
 
-        return new UpdateResource($request);
+        return new DeleteResource($request);
     }
 }
