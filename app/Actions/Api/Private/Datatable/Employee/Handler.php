@@ -21,12 +21,15 @@ class Handler
                 $photoUrl = (! is_null($row->photo)) ?
                 Storage::disk('employee-photo')->url($row->photo) :
                 asset('/build/images/users/avatar-1.jpg');
+
                 return view('skote.pages.employee.datatable.index.column_photo', compact('photoUrl'));
             })
             ->addColumn('column_action', function ($row) {
+                $routeShow = route('employees.show', ['employee' => $row->id]);
                 $routeEdit = route('employees.edit', ['employee' => $row->id]);
                 $routeDelete = route('api.private.employee.delete', ['id' => $row->id]);
-                return view('skote.pages.employee.datatable.index.column_action', compact('routeEdit', 'routeDelete'))->render();
+
+                return view('skote.pages.employee.datatable.index.column_action', compact('routeShow', 'routeEdit', 'routeDelete'))->render();
             })
             ->rawColumns(['photo_url', 'column_action'])
             ->toJson();
