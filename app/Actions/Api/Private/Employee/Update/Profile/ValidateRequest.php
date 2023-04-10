@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Api\Private\Employee\Update;
+namespace App\Actions\Api\Private\Employee\Update\Profile;
 
 use Illuminate\Http\Request;
 use LVR\Phone\Phone;

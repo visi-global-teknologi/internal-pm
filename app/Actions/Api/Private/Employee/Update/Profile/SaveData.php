@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Api\Private\Employee\Update;
+namespace App\Actions\Api\Private\Employee\Update\Profile;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;

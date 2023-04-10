@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-4">Edit Employee Form</h4>
-                    {!! Form::open(['route' => ['api.private.employee.update', $employee->uuid], 'method' => 'POST', 'id' => 'form-employee-update', 'files' => true]) !!}
+                    {!! Form::open(['route' => ['api.private.employee.update.profile', $employee->uuid], 'method' => 'POST', 'id' => 'form-employee-update-profile', 'files' => true]) !!}
                         <input name="_method" type="hidden" value="PUT"/>
                         <div class="row mb-4">
                             <label class="col-sm-3 col-form-label">Full Name</label>
@@ -48,11 +48,13 @@
                             <label class="col-sm-3 col-form-label">Gender</label>
                             <div class="col-sm-9">
                                 <select required name="gender" class="form-select">
-                                    @if ('male' == $employee->gender)
-                                        <option selected value="male">Male</option>
-                                    @else
-                                        <option value="female">Female</option>
-                                    @endif
+                                    @foreach (['male', 'female'] as $item)
+                                        @if ($item == $employee->gender)
+                                            <option selected value="male">Male</option>
+                                        @else
+                                            <option value="female">Female</option>
+                                        @endif
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -65,7 +67,7 @@
                         <div class="form-group row mb-4">
                             <div class="col-md-4">
                                 <a class="btn btn-secondary waves-effect waves-light" href="{{ route('profile') }}">Back</a>
-                                <button id="btn-submit-form-employee-update" type="submit" class="btn btn-primary w-md">Update</button>
+                                <button id="btn-submit-form-employee-update-profile" type="submit" class="btn btn-primary w-md">Update</button>
                             </div>
                         </div>
                         <div class="d-flex flex-wrap gap-3 mb-2">

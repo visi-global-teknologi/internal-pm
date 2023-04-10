@@ -4,7 +4,7 @@ $(document).ready(function (e) {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
     });
-    $("#form-employee-update").on('submit', function(e){
+    $("#form-employee-update-profile").on('submit', function(e){
         e.preventDefault();
         $.ajax({
             type: 'POST',
@@ -15,16 +15,16 @@ $(document).ready(function (e) {
             processData:false,
             beforeSend: function() {
                 $('.spinner-border').show();
-                $('#btn-submit-form-employee-update').hide();
+                $('#btn-submit-form-employee-update-profile').hide();
             },
             success: function(response) {
                 $('.spinner-border').hide();
-                $('#btn-submit-form-employee-update').show();
+                $('#btn-submit-form-employee-update-profile').show();
                 Swal.fire('Yeay!', response.success_message, "success");
             },
             error: function (xhr, error, code) {
                 $('.spinner-border').hide();
-                $('#btn-submit-form-employee-update').show();
+                $('#btn-submit-form-employee-update-profile').show();
                 var err = eval("(" + xhr.responseText + ")");
                 Swal.fire({
                     html: "<strong>Oops!</strong> " + err.error_message,

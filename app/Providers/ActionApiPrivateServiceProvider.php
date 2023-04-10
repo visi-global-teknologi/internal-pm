@@ -21,8 +21,8 @@ class ActionApiPrivateServiceProvider extends ServiceProvider
         // employee
 
         $this->app->bind(
-            'app.action.api.private.employee.update',
-            \App\Actions\Api\Private\Employee\Update\Handler::class
+            'app.action.api.private.employee.update.profile',
+            \App\Actions\Api\Private\Employee\Update\Profile\Handler::class
         );
 
         // datatable
