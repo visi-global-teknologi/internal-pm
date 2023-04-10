@@ -45,6 +45,7 @@
                                 <th>Join Date</th>
                                 <th>Phone</th>
                                 <th>Email</th>
+                                <th></th>
                             </tr>
                         </thead>
                     </table>

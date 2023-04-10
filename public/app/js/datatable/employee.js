@@ -27,6 +27,10 @@ $(document).ready(function (e) {
             { data: "join_date_formatted", name: "join_date" },
             { data: "phone_number", name: "phone_number" },
             { data: "user.email", name: "user.email" },
+            {
+                data: "column_action",
+                orderable: false
+            }
         ],
     });
 });
