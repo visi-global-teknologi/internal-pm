@@ -19,3 +19,4 @@ Route::group(['prefix' => 'master-data', 'as' => 'master-data.', 'middleware' =>
     Route::resource('employee-divisions', \App\Http\Controllers\MasterData\EmployeeDivisionController::class);
     Route::resource('employee-levels', \App\Http\Controllers\MasterData\EmployeeLevelController::class);
 });
+Route::resource('employees', \App\Http\Controllers\EmployeeController::class);

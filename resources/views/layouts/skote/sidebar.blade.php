@@ -9,6 +9,7 @@
                 @include('skote.menu.dashboard')
                 @include('skote.menu.acl')
                 @include('skote.menu.master-data')
+                @include('skote.menu.employee')
             </ul>
         </div>
         <!-- Sidebar -->
