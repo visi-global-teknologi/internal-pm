@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\DataTransferObjects\EmployeeDto;
 
 class EmployeeController extends Controller
 {
@@ -35,7 +37,14 @@ class EmployeeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            $employee = Employee::with(['user', 'employee_level', 'employee_position.employee_division'])->where('id', $id)->firstOrFail();
+            $employeeDto = EmployeeDto::fromModel($employee);
+
+            return view('skote.pages.employee.show', compact('employee', 'employeeDto'));
+        } catch (\Exception $e) {
+            return redirect('employees.index')->withErrors(['message' => $e->getMessage()]);
+        }
     }
 
     /**
