@@ -18,6 +18,8 @@ $(document).ready(function (e) {
             },
         },
         columns: [
+            { data: "photo_url", name: "photo_url" },
+            { data: "employee_number", name: "employee_number" },
             { data: "user.name", name: "user.name" },
             { data: "employee_position.employee_division.name", name: "employee_position.employee_division.name" },
             { data: "employee_position.name", name: "employee_position.name" },

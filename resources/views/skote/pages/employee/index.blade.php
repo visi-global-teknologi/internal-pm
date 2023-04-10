@@ -36,6 +36,8 @@
                     <table id="employee-datatable" class="table table-bordered dt-responsive nowrap w-100">
                         <thead>
                             <tr>
+                                <th>Photo</th>
+                                <th>Employee Number</th>
                                 <th>Name</th>
                                 <th>Division</th>
                                 <th>Position</th>
