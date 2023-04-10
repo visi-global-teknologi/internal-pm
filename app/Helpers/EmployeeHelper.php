@@ -2,9 +2,9 @@
 
 namespace App\Helpers;
 
-use URL;
-use Storage;
 use App\Models\Employee;
+use Storage;
+use URL;
 
 class EmployeeHelper
 {
@@ -14,7 +14,9 @@ class EmployeeHelper
         $employee = Employee::where('user_id', $userId)->first();
 
         if ($employee) {
-            $result = Storage::disk('employee-photo')->url($employee->photo);
+            if (! empty($employee->photo)) {
+                $result = Storage::disk('employee-photo')->url($employee->photo);
+            }
         }
 
         return $result;

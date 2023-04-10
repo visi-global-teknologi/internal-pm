@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTransferObjects\EmployeeDto;
 use App\Models\Employee;
 use Illuminate\Http\Request;
-use App\DataTransferObjects\EmployeeDto;
 
 class EmployeeController extends Controller
 {
