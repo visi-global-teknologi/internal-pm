@@ -21,7 +21,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('skote.pages.employee.create');
     }
 
     /**

@@ -15,22 +15,25 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $uuid
- * @property string $personal_email
- * @property Carbon $birthday
- * @property Carbon $join_date
- * @property string $photo
- * @property string $phone_number
+ * @property string|null $personal_email
+ * @property Carbon|null $birthday
+ * @property Carbon|null $join_date
+ * @property string|null $photo
+ * @property string|null $phone_number
  * @property string $employee_number
  * @property string $gender
  * @property string $active_status
  * @property int $employee_level_id
  * @property int $employee_position_id
  * @property int|null $employee_supervisor_id
+ * @property int|null $user_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property EmployeeLevel $employee_level
  * @property EmployeePosition $employee_position
  * @property Employee|null $employee
+ * @property User|null $user
+ * @property Collection|EmployeeAddress[] $employee_addresses
  * @property Collection|Employee[] $employees
  */
 class Employee extends Model
@@ -43,6 +46,7 @@ class Employee extends Model
         'employee_level_id' => 'int',
         'employee_position_id' => 'int',
         'employee_supervisor_id' => 'int',
+        'user_id' => 'int',
     ];
 
     protected $fillable = [
@@ -51,13 +55,14 @@ class Employee extends Model
         'birthday',
         'join_date',
         'photo',
-        'employee_number',
         'phone_number',
+        'employee_number',
         'gender',
         'active_status',
         'employee_level_id',
         'employee_position_id',
         'employee_supervisor_id',
+        'user_id',
     ];
 
     /**
@@ -91,6 +96,11 @@ class Employee extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function employee_addresses()
+    {
+        return $this->hasMany(EmployeeAddress::class);
     }
 
     public function employees()
