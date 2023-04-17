@@ -46,8 +46,8 @@ class EmployeePosition extends Model
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($employeePosition) {
-            $employeePosition->uuid = (string) \Str::uuid().'-employee-position-'.time();
+        static::creating(function ($user) {
+            $user->uuid = (string) \Str::uuid().'-employee-position-'.time();
         });
     }
 

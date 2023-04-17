@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Acl;
 
 use App\Http\Controllers\Controller;
-use App\Models\Role;
-use Auth;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -14,9 +13,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-
-        return view('skote.pages.acl.role.index', compact('user'));
+        return view('skote.pages.acl.role.index');
     }
 
     /**
@@ -24,7 +21,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('skote.pages.acl.role.create');
     }
 
     /**
@@ -48,7 +45,20 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        try {
+            $role = Role::find($id);
+            if (is_null($role))
+                throw new \Exception('Role ID not found');
+
+            $uninterruptibleRoles = config('pm.uninterruptible_roles');
+            $role = Role::where('id', $id)->first();
+            if (in_array($role->name, $uninterruptibleRoles))
+                throw new \Exception($role->name.' is an uninterruptible role');
+
+            return view('skote.pages.acl.role.edit', compact('role'));
+        } catch (\Exception $e) {
+            return redirect()->route('acl.roles.index')->withErrors(['message' => $e->getMessage()]);
+        }
     }
 
     /**

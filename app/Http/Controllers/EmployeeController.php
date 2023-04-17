@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\DataTransferObjects\EmployeeDto;
 use App\Models\Employee;
+use App\Models\EmployeeDivision;
+use App\Models\EmployeeLevel;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -21,7 +25,12 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('skote.pages.employee.create');
+        $roles = Role::pluck('name', 'name')->toArray();
+        $users = User::where('active_status', 'yes')->pluck('name', 'id')->toArray();
+        $employeeLevels = EmployeeLevel::where('active_status', 'yes')->pluck('name', 'id')->toArray();
+        $employeeDivisions = EmployeeDivision::where('active_status', 'yes')->pluck('name', 'id')->toArray();
+
+        return view('skote.pages.employee.create', compact('employeeDivisions', 'employeeLevels', 'users', 'roles'));
     }
 
     /**
@@ -43,7 +52,7 @@ class EmployeeController extends Controller
 
             return view('skote.pages.employee.show', compact('employee', 'employeeDto'));
         } catch (\Exception $e) {
-            return redirect('employees.index')->withErrors(['message' => $e->getMessage()]);
+            return redirect()->route('employees.index')->withErrors(['message' => $e->getMessage()]);
         }
     }
 

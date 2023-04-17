@@ -2,9 +2,9 @@
 
 namespace App\Actions\Api\Private\Datatable\Employee;
 
+use App\DataTransferObjects\EmployeeDto;
 use App\Models\Employee as ModelEmployee;
 use Illuminate\Http\Request;
-use Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class Handler
@@ -15,12 +15,13 @@ class Handler
 
         return DataTables::of($query)
             ->addColumn('join_date_formatted', function ($row) {
-                return (! is_null($row->join_date)) ? $row->join_date->toFormattedDateString() : null;
+                $employeeDto = EmployeeDto::fromModel($row);
+
+                return $employeeDto->join_date_formatted;
             })
             ->addColumn('photo_url', function ($row) {
-                $photoUrl = (! is_null($row->photo)) ?
-                Storage::disk('employee-photo')->url($row->photo) :
-                asset('/build/images/users/avatar-1.jpg');
+                $employeeDto = EmployeeDto::fromModel($row);
+                $photoUrl = $employeeDto->url_photo;
 
                 return view('skote.pages.employee.datatable.index.column_photo', compact('photoUrl'));
             })

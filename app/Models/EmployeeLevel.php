@@ -39,8 +39,8 @@ class EmployeeLevel extends Model
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($employeeLevel) {
-            $employeeLevel->uuid = (string) \Str::uuid().'-employee-level-'.time();
+        static::creating(function ($user) {
+            $user->uuid = (string) \Str::uuid().'-employee-level-'.time();
         });
     }
 

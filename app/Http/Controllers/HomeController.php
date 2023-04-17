@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTransferObjects\EmployeeDto;
-use App\Models\Employee;
-use Illuminate\Support\Facades\Auth;
-
 class HomeController extends Controller
 {
     /**
@@ -26,37 +22,5 @@ class HomeController extends Controller
     public function index()
     {
         return view('skote.pages.home');
-    }
-
-    public function profile()
-    {
-        $user = Auth::user();
-        $userRole = $user->getRoleNames()->first();
-
-        if ('super admin' == $userRole)
-            return redirect('home');
-
-        $employee = Employee::with(['user', 'employee_level', 'employee_position.employee_division'])->where('user_id', Auth::user()->id)->first();
-        $employeeDto = EmployeeDto::fromModel($employee);
-
-        return view('skote.pages.profile', compact('employee', 'employeeDto'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  string  $uuid
-     * @return \Illuminate\Http\Response
-     */
-    public function profileEdit($uuid)
-    {
-        try {
-            $employee = Employee::with(['user', 'employee_level', 'employee_position.employee_division'])->where('uuid', $uuid)->firstOrFail();
-            $employeeDto = EmployeeDto::fromModel($employee);
-
-            return view('skote.pages.profile.edit', compact('employee', 'employeeDto'));
-        } catch (\Exception $e) {
-            return redirect('profile')->withErrors(['message' => $e->getMessage()]);
-        }
     }
 }

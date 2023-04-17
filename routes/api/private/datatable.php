@@ -10,13 +10,20 @@ Route::group(['prefix' => 'datatables', 'as' => 'api.private.datatable.', 'middl
     Route::get('permission', function (Request $request) {
         return app('app.action.api.private.datatable.permission')->handle($request);
     })->name('permission');
-    Route::get('employee-division', function (Request $request) {
-        return app('app.action.api.private.datatable.employee-division')->handle($request);
-    })->name('employee-division');
-    Route::get('employee-level', function (Request $request) {
-        return app('app.action.api.private.datatable.employee-level')->handle($request);
-    })->name('employee-level');
+    Route::group(['prefix' => 'master-data', 'as' => 'master-data.', 'middleware' => []], function () {
+        Route::group(['prefix' => 'employee', 'as' => 'employee.', 'middleware' => []], function () {
+            Route::get('division', function (Request $request) {
+                return app('app.action.api.private.datatable.master-data.employee.division')->handle($request);
+            })->name('division');
+            Route::get('level', function (Request $request) {
+                return app('app.action.api.private.datatable.master-data.employee.level')->handle($request);
+            })->name('level');
+        });
+    });
     Route::get('employee', function (Request $request) {
         return app('app.action.api.private.datatable.employee')->handle($request);
     })->name('employee');
+    Route::get('user-activity', function (Request $request) {
+        return app('app.action.api.private.datatable.user-activity')->handle($request);
+    })->name('user-activity');
 });

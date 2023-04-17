@@ -2,17 +2,18 @@
 
 namespace App\Actions\Api\Private\Acl\Role\Delete;
 
-use App\Http\Resources\Api\Private\Acl\Role\DeleteResource;
 use Illuminate\Http\Request;
 
 class Handler
 {
     public function handle(Request $request, $id)
     {
-        $request->request->add(['id' => $id]);
+        $request->request->add([
+            'role_id' => $id,
+        ]);
         ValidateRequest::handle($request);
         DeleteData::handle($request);
 
-        return new DeleteResource($request);
+        return response()->api(true, 200, [], 'Successfully delete role', '', '');
     }
 }

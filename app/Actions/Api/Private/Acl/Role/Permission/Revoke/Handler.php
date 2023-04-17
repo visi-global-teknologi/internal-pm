@@ -2,7 +2,6 @@
 
 namespace App\Actions\Api\Private\Acl\Role\Permission\Revoke;
 
-use App\Http\Resources\Api\Private\Acl\Role\Permission\RevokeResource;
 use Illuminate\Http\Request;
 
 class Handler
@@ -17,6 +16,6 @@ class Handler
         ValidateRequest::handle($request);
         RevokePermission::handle($request);
 
-        return new RevokeResource($request);
+        return response()->api(true, 200, [], 'Successfully revoke permission', '', '');
     }
 }

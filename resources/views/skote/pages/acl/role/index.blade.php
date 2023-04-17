@@ -24,6 +24,10 @@
         @endforeach
     @endif
 
+    <div class="d-flex justify-content-end align-items-center py-2">
+        <a href="{{ route('acl.roles.create') }}" class="btn btn-primary w-m">Create Role</a>
+    </div>
+
     <div class="row">
         <div class="col-12">
             <div class="card">
@@ -42,7 +46,6 @@
         </div>
     </div>
     <input type="hidden" name="route_api_private_datatable_role" value="{{ route('api.private.datatable.role') }}"/>
-    <input type="hidden" name="user_uuid" value="{{ $user->uuid }}"/>
 @endsection
 
 @section('script')

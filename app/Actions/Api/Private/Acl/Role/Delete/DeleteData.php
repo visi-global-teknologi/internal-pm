@@ -9,9 +9,9 @@ class DeleteData
 {
     public static function handle(Request $request)
     {
-        $role = \Spatie\Permission\Models\Role::findById($request->id);
+        $role = \Spatie\Permission\Models\Role::findById($request->role_id);
         $role->delete();
 
-        ModelHasRole::where('role_id', $request->id);
+        ModelHasRole::where('role_id', $request->role_id);
     }
 }

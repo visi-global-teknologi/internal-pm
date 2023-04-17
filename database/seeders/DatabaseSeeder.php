@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        Artisan::call('db:seed', ['--class' => 'Laravolt\Indonesia\Seeds\DatabaseSeeder', '--force' => true]);
+        $this->call(CountrySeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(PermissionSeeder::class);
         $this->call(RolePermissionSeeder::class);

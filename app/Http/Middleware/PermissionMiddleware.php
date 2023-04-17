@@ -27,14 +27,14 @@ class PermissionMiddleware
         $currentRouteName = Route::currentRouteName();
 
         if ($permissions->count() < 1)
-            return redirect('home')->withErrors(['message' => 'Anda tidak memiliki izin untuk proses tersebut']);
+            return redirect()->route('home')->withErrors(['message' => 'You don\'t have permission for the process']);
 
         if ($permissions->contains(function ($permission) use ($currentRouteName) {
             return $permission->name === $currentRouteName;
         })) {
             return $next($request);
         } else {
-            return redirect('home')->withErrors(['message' => 'Anda tidak memiliki izin untuk proses tersebut']);
+            return redirect()->route('home')->withErrors(['message' => 'You don\'t have permission for the process']);
         }
     }
 }

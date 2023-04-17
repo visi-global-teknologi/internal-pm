@@ -52,8 +52,8 @@ class EmployeeAddress extends Model
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($employee) {
-            $employee->uuid = (string) \Str::uuid().'-employee-address-'.time();
+        static::creating(function ($user) {
+            $user->uuid = (string) \Str::uuid().'-employee-address-'.time();
         });
     }
 

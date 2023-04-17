@@ -116,8 +116,8 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">Supervisor :</th>
-                                    @if (count($employeeDto->employee_supervisor) > 0)
-                                        <td>{{ $employeeDto->employee_supervisor['name'] }}</td>
+                                    @if (count($employeeDto->supervisor) > 0)
+                                        <td>{{ $employeeDto->supervisor['user']['name'] }}</td>
                                     @else
                                         <td> - </td>
                                     @endif
@@ -137,9 +137,13 @@
                     <div class="table-responsive">
                         <table class="table table-striped mb-0">
                             <tbody>
-                                <tr>
-                                    <td>{{ app('string.helper')->changeNullWithDash(null) }}</td>
-                                </tr>
+                                @if (count($employeeDto->addresses) > 0)
+                                    @foreach ($employeeDto->addresses as $item)
+                                        <tr>
+                                            <td>{{ ucwords($item) }}</td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>

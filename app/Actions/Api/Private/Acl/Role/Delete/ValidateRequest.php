@@ -2,7 +2,7 @@
 
 namespace App\Actions\Api\Private\Acl\Role\Delete;
 
-use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class ValidateRequest
@@ -10,11 +10,18 @@ class ValidateRequest
     public static function handle(Request $request)
     {
         $request->validate([
-            'user_uuid' => 'required|exists:users,uuid',
-            'id' => 'required|exists:roles,id',
+            'role_id' => 'required|exists:roles,id',
         ]);
 
-        $user = User::where('uuid', $request->user_uuid)->first();
-        $role = $user->getRoleNames()->first();
+        self::checkUninterruptibleRoles($request);
+    }
+
+    public static function checkUninterruptibleRoles($request)
+    {
+        $uninterruptibleRoles = config('pm.uninterruptible_roles');
+        $role = Role::where('id', $request->role_id)->first();
+
+        if (in_array($role->name, $uninterruptibleRoles))
+            abort(400, $role->name.' is an uninterruptible role');
     }
 }

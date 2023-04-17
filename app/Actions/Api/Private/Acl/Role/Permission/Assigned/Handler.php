@@ -2,7 +2,6 @@
 
 namespace App\Actions\Api\Private\Acl\Role\Permission\Assigned;
 
-use App\Http\Resources\Api\Private\Acl\Role\Permission\AssignedResource;
 use Illuminate\Http\Request;
 
 class Handler
@@ -17,6 +16,6 @@ class Handler
         ValidateRequest::handle($request);
         AssignedPermission::handle($request);
 
-        return new AssignedResource($request);
+        return response()->api(true, 200, [], 'Successfully assigned permission', '', '');
     }
 }

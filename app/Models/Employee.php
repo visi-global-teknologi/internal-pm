@@ -41,8 +41,8 @@ class Employee extends Model
     protected $table = 'employees';
 
     protected $casts = [
-        'birthday' => 'date',
-        'join_date' => 'date',
+        'birthday' => 'datetime',
+        'join_date' => 'datetime',
         'employee_level_id' => 'int',
         'employee_position_id' => 'int',
         'employee_supervisor_id' => 'int',
@@ -73,8 +73,8 @@ class Employee extends Model
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($employee) {
-            $employee->uuid = (string) \Str::uuid().'-employee-'.time();
+        static::creating(function ($user) {
+            $user->uuid = (string) \Str::uuid().'-employee-'.time();
         });
     }
 

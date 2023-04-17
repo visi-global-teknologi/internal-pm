@@ -39,8 +39,8 @@ class EmployeeDivision extends Model
     protected static function boot()
     {
         parent::boot();
-        static::creating(function ($employeeDivision) {
-            $employeeDivision->uuid = (string) \Str::uuid().'-employee-division-'.time();
+        static::creating(function ($user) {
+            $user->uuid = (string) \Str::uuid().'-employee-division-'.time();
         });
     }
 
