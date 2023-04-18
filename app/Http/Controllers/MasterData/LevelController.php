@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\MasterData;
 
-use Auth;
-use Illuminate\Http\Request;
-use App\Models\EmployeeLevel;
 use App\DataTransferObjects\UserDto;
 use App\Http\Controllers\Controller;
+use App\Models\EmployeeLevel;
+use Auth;
+use Illuminate\Http\Request;
 
 class LevelController extends Controller
 {

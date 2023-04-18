@@ -15,6 +15,7 @@ class Handler
 
         ValidateRequest::handle($request);
         AssignedPermission::handle($request);
+        LoggingUserActivity::handle($request);
 
         return response()->api(true, 200, [], 'Successfully assigned permission', '', '');
     }

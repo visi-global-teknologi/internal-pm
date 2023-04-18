@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'master-data', 'as' => 'api.private.master-data.', 'middleware' => ['permission.private.api.middleware']], function () {
+Route::group(['prefix' => 'master-data', 'as' => 'api.private.master-data.', 'middleware' => ['permission.private.api.middleware', 'logging.user.activity.middleware']], function () {
     Route::group(['prefix' => 'employee', 'as' => 'employee.', 'middleware' => []], function () {
         Route::group(['prefix' => 'division', 'as' => 'division.', 'middleware' => []], function () {
             Route::post('/', function (Request $request) {

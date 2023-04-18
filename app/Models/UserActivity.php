@@ -43,6 +43,19 @@ class UserActivity extends Model
         'user_id',
     ];
 
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($user) {
+            $user->uuid = (string) \Str::uuid().'-user-activity-'.time();
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);

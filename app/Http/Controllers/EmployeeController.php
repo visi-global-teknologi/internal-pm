@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
+use App\DataTransferObjects\EmployeeDto;
+use App\DataTransferObjects\UserDto;
+use App\Models\Employee;
+use App\Models\EmployeeDivision;
+use App\Models\EmployeeLevel;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\Employee;
+use Auth;
 use Illuminate\Http\Request;
-use App\Models\EmployeeLevel;
-use App\Models\EmployeeDivision;
-use App\DataTransferObjects\UserDto;
-use App\DataTransferObjects\EmployeeDto;
 
 class EmployeeController extends Controller
 {

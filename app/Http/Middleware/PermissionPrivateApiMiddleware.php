@@ -31,6 +31,10 @@ class PermissionPrivateApiMiddleware
             if ($permissions->contains(function ($permission) use ($currentRouteName) {
                 return $permission->name === $currentRouteName;
             })) {
+                $request->request->add([
+                    'user_id_executor' => $user->id,
+                ]);
+
                 return $next($request);
             } else {
                 abort(400, 'You don\'t have permission for the process');

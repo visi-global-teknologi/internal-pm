@@ -17,9 +17,9 @@ return new class extends Migration
             $table->timestamp('date_time');
             $table->string('ip_address');
             $table->string('user_agent');
-            $table->string('module_name');
-            $table->string('activity');
-            $table->unsignedBigInteger('user_id');
+            $table->string('module_name')->nullable();
+            $table->string('activity')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

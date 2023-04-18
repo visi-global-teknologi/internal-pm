@@ -18,7 +18,12 @@ $(document).ready(function (e) {
             },
         },
         columns: [
+            { data: "date_time_formatted", name: "date_time_formatted" },
             { data: "ip_address", name: "ip_address" },
+            { data: "user_agent", name: "user_agent" },
+            { data: "module_name", name: "module_name" },
+            { data: "activity", name: "activity" },
+            { data: "user_name", name: "user_name" }
         ],
     });
 });

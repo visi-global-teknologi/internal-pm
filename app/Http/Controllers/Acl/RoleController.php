@@ -16,6 +16,7 @@ class RoleController extends Controller
     public function index()
     {
         $userDto = UserDto::fromModel(Auth::user());
+
         return view('skote.pages.acl.role.index', compact('userDto'));
     }
 
@@ -25,6 +26,7 @@ class RoleController extends Controller
     public function create()
     {
         $userDto = UserDto::fromModel(Auth::user());
+
         return view('skote.pages.acl.role.create', compact('userDto'));
     }
 
@@ -60,6 +62,7 @@ class RoleController extends Controller
                 throw new \Exception($role->name.' is an uninterruptible role');
 
             $userDto = UserDto::fromModel(Auth::user());
+
             return view('skote.pages.acl.role.edit', compact('role', 'userDto'));
         } catch (\Exception $e) {
             return redirect()->route('acl.roles.index')->withErrors(['message' => $e->getMessage()]);
@@ -90,6 +93,7 @@ class RoleController extends Controller
         try {
             $role = Role::where('id', $id)->firstOrFail();
             $userDto = UserDto::fromModel(Auth::user());
+
             return view('skote.pages.acl.role.permission', compact('role', 'userDto'));
         } catch (\Exception $e) {
             return redirect('acl.roles.index')->withErrors(['message' => $e->getMessage()]);

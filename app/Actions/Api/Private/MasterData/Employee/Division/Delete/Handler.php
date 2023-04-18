@@ -13,6 +13,7 @@ class Handler
         ]);
 
         ValidateRequest::handle($request);
+        LoggingUserActivity::handle($request);
         DeleteData::handle($request);
 
         return response()->api(true, 200, [], 'Successfully delete employee division', '', '');

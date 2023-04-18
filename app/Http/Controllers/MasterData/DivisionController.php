@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\MasterData;
 
-use Auth;
-use Illuminate\Http\Request;
-use App\Models\EmployeeDivision;
 use App\DataTransferObjects\UserDto;
 use App\Http\Controllers\Controller;
+use App\Models\EmployeeDivision;
+use Auth;
+use Illuminate\Http\Request;
 
 class DivisionController extends Controller
 {

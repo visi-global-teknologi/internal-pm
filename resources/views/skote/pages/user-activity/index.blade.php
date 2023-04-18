@@ -32,7 +32,12 @@
                     <table id="user-activity-datatable" class="table table-bordered dt-responsive nowrap w-100">
                         <thead>
                             <tr>
+                                <th>Date Time</th>
                                 <th>Ip Address</th>
+                                <th>User Agent</th>
+                                <th>Module Name</th>
+                                <th>Activity</th>
+                                <th>User</th>
                             </tr>
                         </thead>
                     </table>

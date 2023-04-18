@@ -13,6 +13,7 @@ class Handler
         try {
             ValidateRequest::handle($request);
             SaveData::handle($request);
+            LoggingUserActivity::handle($request);
             DB::commit();
 
             return response()->api(true, 200, [], 'Successfully store employee', '', '');
