@@ -46,11 +46,11 @@ class PermissionSeeder extends Seeder
     {
         $isSkipped = false;
         $skipped = [
-            'api.private',
+            'datatable',
+            'helper',
             'home',
             'logout',
             'password.',
-            'profile',
             'login',
         ];
 

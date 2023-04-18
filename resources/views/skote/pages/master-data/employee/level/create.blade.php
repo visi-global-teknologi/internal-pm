@@ -28,6 +28,7 @@
                 <div class="card-body">
                     <h4 class="card-title mb-4">Create</h4>
                     {!! Form::open(['route' => 'api.private.master-data.employee.level.store', 'method' => 'POST', 'id' => 'form-master-data-employee-level-store']) !!}
+                        <input name="uuid_user_encrypted" type="hidden" class="form-control" value="{{ $userDto->uuid_encrypted }}">
                         <div class="row mb-4">
                             <label class="col-sm-3 col-form-label">Name</label>
                             <div class="col-sm-9">

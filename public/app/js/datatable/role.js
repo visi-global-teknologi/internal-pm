@@ -56,6 +56,9 @@ $(document).ready(function (e) {
                 $.ajax({
                     type: 'DELETE',
                     url: url,
+                    data: {
+                        "uuid_user_encrypted": $("input[name=uuid_user_encrypted]").val()
+                    },
                     success: function (response) {
                         Swal.fire("Berhasil!", response.success_message, "success");
                         setTimeout(function(){

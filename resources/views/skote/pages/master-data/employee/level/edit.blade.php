@@ -28,6 +28,7 @@
                 <div class="card-body">
                     <h4 class="card-title mb-4">Edit</h4>
                     {!! Form::open(['route' => ['api.private.master-data.employee.level.update', $employeeLevel->id], 'method' => 'POST', 'id' => 'form-master-data-employee-level-update']) !!}
+                        <input name="uuid_user_encrypted" type="hidden" class="form-control" value="{{ $userDto->uuid_encrypted }}">
                         <input type="hidden" name="_method" value="PUT" >
                         <div class="row mb-4">
                             <label class="col-sm-3 col-form-label">Name</label>

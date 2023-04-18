@@ -21,7 +21,7 @@ class EmployeeHelper
     {
         $village = IndonesiaVillage::with(['indonesia_district.indonesia_city.indonesia_province'])->where('id', $indonesiaVillageId)->first();
 
-        return $address.', '.$village->name.', '.$village->indonesia_district->name.', '.$village->indonesia_district->indonesia_city->name.', '.$village->indonesia_district->indonesia_city->indonesia_province->name.', '.$postalCode.', '. 'Indonesia';
+        return $address.', '.$village->name.', '.$village->indonesia_district->name.', '.$village->indonesia_district->indonesia_city->name.', '.$village->indonesia_district->indonesia_city->indonesia_province->name.', '.$postalCode.', '.'Indonesia';
     }
 
     public function setOtherAddress($address, $postalCode, $countryId)

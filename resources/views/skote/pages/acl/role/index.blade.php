@@ -46,6 +46,7 @@
         </div>
     </div>
     <input type="hidden" name="route_api_private_datatable_role" value="{{ route('api.private.datatable.role') }}"/>
+    <input name="uuid_user_encrypted" type="hidden" class="form-control" value="{{ $userDto->uuid_encrypted }}">
 @endsection
 
 @section('script')

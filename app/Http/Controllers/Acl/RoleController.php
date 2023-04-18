@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Acl;
 
+use App\DataTransferObjects\UserDto;
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 
@@ -13,7 +15,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('skote.pages.acl.role.index');
+        $userDto = UserDto::fromModel(Auth::user());
+        return view('skote.pages.acl.role.index', compact('userDto'));
     }
 
     /**
@@ -21,7 +24,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('skote.pages.acl.role.create');
+        $userDto = UserDto::fromModel(Auth::user());
+        return view('skote.pages.acl.role.create', compact('userDto'));
     }
 
     /**
@@ -55,7 +59,8 @@ class RoleController extends Controller
             if (in_array($role->name, $uninterruptibleRoles))
                 throw new \Exception($role->name.' is an uninterruptible role');
 
-            return view('skote.pages.acl.role.edit', compact('role'));
+            $userDto = UserDto::fromModel(Auth::user());
+            return view('skote.pages.acl.role.edit', compact('role', 'userDto'));
         } catch (\Exception $e) {
             return redirect()->route('acl.roles.index')->withErrors(['message' => $e->getMessage()]);
         }
@@ -84,8 +89,8 @@ class RoleController extends Controller
     {
         try {
             $role = Role::where('id', $id)->firstOrFail();
-
-            return view('skote.pages.acl.role.permission', compact('role'));
+            $userDto = UserDto::fromModel(Auth::user());
+            return view('skote.pages.acl.role.permission', compact('role', 'userDto'));
         } catch (\Exception $e) {
             return redirect('acl.roles.index')->withErrors(['message' => $e->getMessage()]);
         }

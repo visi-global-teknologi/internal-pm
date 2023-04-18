@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTransferObjects\EmployeeDto;
-use App\Models\Employee;
-use App\Models\EmployeeDivision;
-use App\Models\EmployeeLevel;
+use Auth;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Models\EmployeeLevel;
+use App\Models\EmployeeDivision;
+use App\DataTransferObjects\UserDto;
+use App\DataTransferObjects\EmployeeDto;
 
 class EmployeeController extends Controller
 {
@@ -29,8 +31,9 @@ class EmployeeController extends Controller
         $users = User::where('active_status', 'yes')->pluck('name', 'id')->toArray();
         $employeeLevels = EmployeeLevel::where('active_status', 'yes')->pluck('name', 'id')->toArray();
         $employeeDivisions = EmployeeDivision::where('active_status', 'yes')->pluck('name', 'id')->toArray();
+        $userDto = UserDto::fromModel(Auth::user());
 
-        return view('skote.pages.employee.create', compact('employeeDivisions', 'employeeLevels', 'users', 'roles'));
+        return view('skote.pages.employee.create', compact('employeeDivisions', 'employeeLevels', 'users', 'roles', 'userDto'));
     }
 
     /**

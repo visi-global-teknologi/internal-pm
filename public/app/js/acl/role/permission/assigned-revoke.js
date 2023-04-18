@@ -20,7 +20,7 @@ $(document).ready(function (e) {
     function assignedRevoke(url, dataKey, ev) {
         Swal.fire({
             title: 'Apakah anda yakin?',
-            text: 'Setelah Anda menghapus data ini. Tindakan ini tidak bisa dibatalkan.',
+            text: 'Melakukan proses ini',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Lanjutkan',
@@ -42,16 +42,16 @@ $(document).ready(function (e) {
                 $.ajax({
                     type: 'PUT',
                     url: url,
+                    data: {
+                        "uuid_user_encrypted": $("input[name=uuid_user_encrypted]").val()
+                    },
                     success: function (response) {
-                        Swal.fire("Berhasil!", response.message, "success");
-                        setTimeout(function(){
-                            location.reload();
-                        }, 2000);
+                        Swal.fire("Berhasil!", response.success_message, "success");
                     },
                     error: function (xhr, status, error) {
                         var err = eval("(" + xhr.responseText + ")");
                         Swal.fire({
-                            html: "<strong>Oops!</strong> " + err.message,
+                            html: "<strong>Oops!</strong> " + err.error_message,
                         });
                     }
                 })

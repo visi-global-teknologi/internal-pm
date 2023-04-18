@@ -27,6 +27,7 @@
             <div class="card">
                 <div class="card-body">
                 {!! Form::open(['route' => 'api.private.acl.role.store', 'method' => 'POST', 'id' => 'form-acl-role-store']) !!}
+                    <input required name="uuid_user_encrypted" type="hidden" class="form-control" value="{{ $userDto->uuid_encrypted }}">
                     <div class="row mb-4">
                         <label class="col-sm-3 col-form-label">Name</label>
                         <div class="col-sm-9">

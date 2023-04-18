@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'acl', 'as' => 'api.private.acl.', 'middleware' => []], function () {
+Route::group(['prefix' => 'acl', 'as' => 'api.private.acl.', 'middleware' => ['permission.private.api.middleware']], function () {
     Route::group(['prefix' => 'role', 'as' => 'role.', 'middleware' => []], function () {
         Route::post('/', function (Request $request) {
             return app('app.action.api.private.acl.role.store')->handle($request);

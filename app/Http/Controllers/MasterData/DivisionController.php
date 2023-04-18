@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\MasterData;
 
-use App\Http\Controllers\Controller;
-use App\Models\EmployeeDivision;
+use Auth;
 use Illuminate\Http\Request;
+use App\Models\EmployeeDivision;
+use App\DataTransferObjects\UserDto;
+use App\Http\Controllers\Controller;
 
 class DivisionController extends Controller
 {
@@ -13,7 +15,9 @@ class DivisionController extends Controller
      */
     public function index()
     {
-        return view('skote.pages.master-data.employee.division.index');
+        $userDto = UserDto::fromModel(Auth::user());
+
+        return view('skote.pages.master-data.employee.division.index', compact('userDto'));
     }
 
     /**
@@ -21,7 +25,9 @@ class DivisionController extends Controller
      */
     public function create()
     {
-        return view('skote.pages.master-data.employee.division.create');
+        $userDto = UserDto::fromModel(Auth::user());
+
+        return view('skote.pages.master-data.employee.division.create', compact('userDto'));
     }
 
     /**
@@ -47,8 +53,9 @@ class DivisionController extends Controller
     {
         try {
             $employeeDivision = EmployeeDivision::where('id', $id)->firstOrFail();
+            $userDto = UserDto::fromModel(Auth::user());
 
-            return view('skote.pages.master-data.employee.division.edit', compact('employeeDivision'));
+            return view('skote.pages.master-data.employee.division.edit', compact('employeeDivision', 'userDto'));
         } catch (\Exception $e) {
             return redirect()->route('master-data.employee.divisions.index')->withErrors(['message' => $e->getMessage()]);
         }

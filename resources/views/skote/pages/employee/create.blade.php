@@ -27,6 +27,7 @@
     @endif
 
     {!! Form::open(['route' => 'api.private.employee.store', 'method' => 'POST', 'id' => 'form-employee-store']) !!}
+        <input name="uuid_user_encrypted" type="hidden" class="form-control" value="{{ $userDto->uuid_encrypted }}">
         <div class="row">
             @include('skote.pages.employee.component.form-create.div-group-form-personal-detail')
             @include('skote.pages.employee.component.form-create.div-group-form-employee-information')

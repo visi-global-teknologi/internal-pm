@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\MasterData;
 
-use App\Http\Controllers\Controller;
-use App\Models\EmployeeLevel;
+use Auth;
 use Illuminate\Http\Request;
+use App\Models\EmployeeLevel;
+use App\DataTransferObjects\UserDto;
+use App\Http\Controllers\Controller;
 
 class LevelController extends Controller
 {
@@ -13,7 +15,9 @@ class LevelController extends Controller
      */
     public function index()
     {
-        return view('skote.pages.master-data.employee.level.index');
+        $userDto = UserDto::fromModel(Auth::user());
+
+        return view('skote.pages.master-data.employee.level.index', compact('userDto'));
     }
 
     /**
@@ -21,7 +25,9 @@ class LevelController extends Controller
      */
     public function create()
     {
-        return view('skote.pages.master-data.employee.level.create');
+        $userDto = UserDto::fromModel(Auth::user());
+
+        return view('skote.pages.master-data.employee.level.create', compact('userDto'));
     }
 
     /**
@@ -47,8 +53,9 @@ class LevelController extends Controller
     {
         try {
             $employeeLevel = EmployeeLevel::where('id', $id)->firstOrFail();
+            $userDto = UserDto::fromModel(Auth::user());
 
-            return view('skote.pages.master-data.employee.level.edit', compact('employeeLevel'));
+            return view('skote.pages.master-data.employee.level.edit', compact('employeeLevel', 'userDto'));
         } catch (\Exception $e) {
             return redirect()->route('master-data.employee.levels.index')->withErrors(['message' => $e->getMessage()]);
         }
